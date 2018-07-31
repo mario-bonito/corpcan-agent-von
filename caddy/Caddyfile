@@ -1,4 +1,4 @@
-{%WEB_HOST_NAME%}:80, {%WEB_HOST_NAME%}:443 {
+0.0.0.0:80, 0.0.0.0:443 {
     log logs/access.log
     root /srv/
     tls self_signed

@@ -23,6 +23,7 @@ import json
 import os
 import sys
 import time
+import glob
 
 import aiohttp
 
@@ -31,8 +32,7 @@ DEFAULT_AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5006/onbis')
 parser = argparse.ArgumentParser(description='Issue one or more credentials via von-x')
 parser.add_argument('paths', nargs='+', help='the path to a credential JSON file')
 parser.add_argument('-u', '--url', default=DEFAULT_AGENT_URL, help='the URL of the von-x service')
-parser.add_argument('-p', '--parallel', action='store_true',
-    help='submit the credentials in parallel')
+parser.add_argument('-p', '--parallel', action='store_true', help='submit the credentials in parallel')
 
 args = parser.parse_args()
 
@@ -42,38 +42,40 @@ PARALLEL = args.parallel
 
 async def issue_cred(http_client, cred_path, ident):
     with open(cred_path) as cred_file:
-        cred = json.load(cred_file)
-    if not cred:
-        raise ValueError('Credential could not be parsed')
-    schema = cred.get('schema')
-    if not schema:
-        raise ValueError('No schema defined')
-    version = cred.get('version', '')
-    attrs = cred.get('attributes')
-    if not attrs:
-        raise ValueError('No schema attributes defined')
+        creds = json.load(cred_file)
 
-    print('Submitting credential {} {}'.format(ident, cred_path))
+    for cred in creds:
+        if not cred:
+            raise ValueError('Credential could not be parsed')
+        schema = cred.get('schema')
+        if not schema:
+            raise ValueError('No schema defined')
+        version = cred.get('version', '')
+        attrs = cred.get('attributes')
+        if not attrs:
+            raise ValueError('No schema attributes defined')
 
-    start = time.time()
-    try:
-        response = await http_client.post(
-            '{}/issue-credential'.format(AGENT_URL),
-            params={'schema': schema, 'version': version},
-            json=attrs
-        )
-        if response.status != 200:
-            raise RuntimeError(
-                'Credential could not be processed: {}'.format(await response.text())
+        print('Submitting credential {} {}'.format(ident, cred_path))
+
+        start = time.time()
+        try:
+            response = await http_client.post(
+                '{}/issue-credential'.format(AGENT_URL),
+                params={'schema': schema, 'version': version},
+                json=attrs
             )
-        result_json = await response.json()
-    except Exception as exc:
-        raise Exception(
-            'Could not issue credential. '
-            'Are von-x and TheOrgBook running?') from exc
+            if response.status != 200:
+                raise RuntimeError(
+                    'Credential could not be processed: {}'.format(await response.text())
+                )
+            result_json = await response.json()
+        except Exception as exc:
+            raise Exception(
+                'Could not issue credential. '
+                'Are von-x and TheOrgBook running?') from exc
 
-    elapsed = time.time() - start
-    print('Response to {} from von-x ({:.2f}s):\n\n{}\n'.format(ident, elapsed, result_json))
+        elapsed = time.time() - start
+        print('Response to {} from von-x ({:.2f}s):\n\n{}\n'.format(ident, elapsed, result_json))
 
 async def submit_all(cred_paths, parallel=True):
     start = time.time()
@@ -92,4 +94,5 @@ async def submit_all(cred_paths, parallel=True):
     elapsed = time.time() - start
     print('Total time: {:.2f}s'.format(elapsed))
 
-asyncio.get_event_loop().run_until_complete(submit_all(CRED_PATHS, PARALLEL))
+if __name__ == "__main__":
+    asyncio.get_event_loop().run_until_complete(submit_all(CRED_PATHS, PARALLEL))

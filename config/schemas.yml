@@ -1,19 +1,15 @@
 - name: incorporation.onbis.gov.on.ca
   version: '1.0.31'
   attributes:
-    - legal_entity_id
-    - corp_num
-    - legal_name
-    - legal_name_effective
-    - org_name_assumed
-    - org_name_assumed_effective
-    - org_name_trans
-    - org_name_trans_effective
-    - org_reg_status
-    - org_status_effective
-    - org_type
+    - company_number
+    - associated_company
+    - company_name
+    - name_effective
+    - company_status
+    - status_effective
+    - business_type
     - registered_jurisdiction
-    - registration_type
+    - extra_provincial
     - home_jurisdiction
     - effective_date
     - end_date
@@ -21,14 +17,11 @@
 - name: address.onbis.gov.on.ca
   version: '1.0.31'
   attributes:
-    - legal_entity_id
-    - org_registry_id
+    - company_number
+    - associated_company
     - addressee
-    - dba_name
-    - dba_corp_num
-    - registered_jurisdiction
-    - addr_type
-    - local_address
+    - address_type
+    - civic_address
     - municipality
     - province
     - postal_code
@@ -39,11 +32,14 @@
 - name: doing_business_as.onbis.gov.on.ca
   version: '1.0.31'
   attributes:
-    - legal_entity_id
-    - org_registry_id
-    - org_name
-    - registered_jurisdiction
+    - dba_number
+    - corp_number
     - dba_name
-    - dba_corp_num
+    - name_effective
+    - dba_status
+    - status_effective
+    - registered_jurisdiction
+    - extra_provincial
+    - home_jurisdiction
     - effective_date
     - end_date

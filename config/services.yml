@@ -1,6 +1,6 @@
 issuers:
   ONBIS:
-    name: Ontario Registries
+    name: Ontario Business Registries
     abbreviation: ONBIS
     email: onbis@ontario.ca
     url: $APPLICATION_URL
@@ -9,12 +9,12 @@ issuers:
       seed: $WALLET_SEED_ONBIS
 
     credential_types:
-      - description: Incorporation
+      - description: Business Registration
         schema: incorporation.onbis.gov.on.ca
         issuer_url: $APPLICATION_URL_INCORP
         topic: 
           source_id:
-            input: corp_num
+            input: company_number
             from: claim
           type:
             input: incorporation
@@ -23,10 +23,25 @@ issuers:
           - model: name
             fields:
               text:
-                input: legal_name
+                input: company_name
                 from: claim
               type:
-                input: legal_name
+                input: company_name
+                from: value
+          - model: category
+            fields:
+              text:
+                input: company_status
+                from: claim
+              type:
+                input: topic_status
+                from: value
+            fields:
+              text:
+                input: business_type
+                from: claim
+              type:
+                input: topic_type
                 from: value
 
       - description: Doing Business As
@@ -34,13 +49,13 @@ issuers:
         issuer_url: $APPLICATION_URL_DBA
         topic: 
           parent_source_id:
-            input: org_registry_id
+            input: corp_number
             from: claim
           parent_type:
             input: incorporation
             from: value
           source_id:
-            input: dba_corp_num
+            input: dba_number
             from: claim
           type:
             input: doing_business_as
@@ -52,37 +67,45 @@ issuers:
                 input: dba_name
                 from: claim
                 processor:
-                  - string_helpers.lowercase
+                  - string_helpers.uppercase
               type:
                 input: dba_name
                 from: value
+          - model: category
+            fields:
+              text:
+                input: dba_status
+                from: claim
+              type:
+                input: topic_status
+                from: value
 
-      - description: Corporate Address
+      - description: Registration Address
         schema: address.onbis.gov.on.ca
         issuer_url: $APPLICATION_URL_ADDRESS
         topic:
           -
             parent_source_id:
-              input: org_registry_id
+              input: associated_company
               from: claim
             parent_type:
               input: incorporation
               from: value
             source_id:
-              input: dba_corp_num
+              input: company_number
               from: claim
             type:
               input: doing_business_as
               from: value
           -
             source_id:
-              input: org_registry_id
+              input: company_number
               from: claim
             type:
               input: incorporation
               from: value
         cardinality_fields:
-          - addr_type
+          - address_type
         mapping:
           - model: address
             fields:
@@ -90,7 +113,7 @@ issuers:
                 input: addressee
                 from: claim
               civic_address:
-                input: local_address
+                input: civic_address
                 from: claim
               city:
                 input: municipality
@@ -105,7 +128,10 @@ issuers:
                 input: country
                 from: claim
               type:
-                input: addr_type
+                input: address_type
+                from: claim
+              effective_date:
+                input: effective_date
                 from: claim
               end_date:
                 input: end_date
@@ -119,14 +145,12 @@ proof_requests:
           name: incorporation.onbis.gov.on.ca
           version: '1.0.31'
         attributes:
-          - legal_entity_id
-          - corp_num
-          - legal_name
-          - org_type
+          - company_number
+          - company_name
+          - business_type
           - addressee
-          - address_line_1
-          - address_line_2
-          - city
+          - local_address
+          - municipality
           - province
           - postal_code
           - country
