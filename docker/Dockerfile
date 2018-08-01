@@ -8,7 +8,7 @@ WORKDIR $HOME
 
 RUN echo 110
 RUN pip install gunicorn
-RUN pip install git+https://github.com/nrempel/von-x.git@api-v2
+RUN pip install git+https://github.com/weiiv/von-x.git@api-v2
 
 ADD --chown=indy:indy . $HOME
 
