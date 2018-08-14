@@ -7,7 +7,7 @@
 # IMAGE_NAMESPACE=ontvon-von-ont-registries-agent-tools
 TAG_NAME=test
 APPLICATION_DOMAIN=onbis-x-agent-ontvon-von-ont-registries-agent-test.pathfinder.gov.bc.ca
-APPLICATION_URL=https://onbis-x-proxy-ontvon-von-ont-registries-agent-test.pathfinder.gov.bc.ca/
+APPLICATION_URL=https://onbis-x-test.pathfinder.gov.bc.ca/
 # CONFIG_ROOT=../config
 # HOST_PORT=8080
 # ENVIRONMENT=default
