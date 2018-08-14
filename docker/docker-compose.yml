@@ -2,28 +2,31 @@ version: '3'
 services:
 
   caddy:
-    image: "abiosoft/caddy:no-stats"
+    build:
+      context: ..
+      dockerfile: docker/proxy/Dockerfile
     environment:
       TOB_API_URL: ${TOB_API_URL:-}
       WEB_BASE_HREF: ${WEB_BASE_HREF:-/}
-      WEB_HOST_NAME: ${WEB_HOST_NAME:-localhost}
+      WEB_HOST_NAME: ${WEB_HOST_NAME:-0.0.0.0}
+      WEB_HOST_PORT: ${WEB_HOST_PORT:-8080}
+      WEB_HOST_TLS: ${WEB_HOST_TLS:-off}
+      AGENT_HOST: ${AGENT_HOST:-agent}
+      AGENT_PORT: ${AGENT_PORT:-8000}
     links:
       - onbis-agent:vonx-agent
     networks:
       - vonx
     ports:
-      - ${WEB_HTTP_PORT:-5006}:80
-      - ${WEB_HTTPS_PORT:-5443}:443
+      - ${WEB_HTTP_PORT:-5006}:${WEB_HOST_PORT:-8080}
     volumes:
-      - ../caddy/Caddyfile:/etc/Caddyfile
-      - ../assets:/srv/assets
       - caddy-data:/root/.caddy
       - caddy-logs:/srv/logs
 
   onbis-agent:
     build:
       context: ..
-      dockerfile: docker/Dockerfile
+      dockerfile: docker/agent/Dockerfile
     environment:
       APPLICATION_URL: ${APPLICATION_URL:-http://localhost:5006}
       CONFIG_ROOT: ../config

@@ -1,0 +1,23 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: .
+# Template File: templates/onbis-x-proxy/onbis-x-proxy-deploy.json
+#=========================================================
+# NAME=onbis-x-proxy
+# IMAGE_NAMESPACE=ontvon-von-ont-registries-agent-tools
+TAG_NAME=test
+APPLICATION_DOMAIN=onbis-x-test.pathfinder.gov.bc.ca
+TOB_API_URL=https://ontvon-von-test.pathfinder.gov.bc.ca/api
+# WEB_HOST_NAME=0.0.0.0
+# WEB_HOST_PORT=8080
+# WEB_HOST_TLS=off
+# WEB_BASE_HREF=/
+# AGENT_HOST=onbis-x-agent
+# AGENT_PORT=8080
+# CONFIG_FILE_NAME=Caddyfile
+# CONFIG_MAP_NAME=caddy-conf
+# CONFIG_MOUNT_PATH=/etc/
+# CPU_LIMIT=0
+# MEMORY_LIMIT=0Mi
+# CPU_REQUEST=0
+# MEMORY_REQUEST=0Mi

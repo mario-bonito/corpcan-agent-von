@@ -1,7 +1,7 @@
 [
     {
         "schema": "incorporation.onbis.gov.on.ca",
-        "version": "1.0.31",
+        "version": "1.0.32",
         "attributes": {
         "company_number": "696",
         "company_name": "CANADIAN LINOTYPE, LIMITED",
@@ -18,7 +18,7 @@
     },
     {
         "schema": "address.onbis.gov.on.ca",
-        "version": "1.0.31",
+        "version": "1.0.32",
         "attributes": {
         "company_number": "696",
         "associated_company_number": "",

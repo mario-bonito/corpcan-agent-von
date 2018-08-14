@@ -1,5 +1,5 @@
 - name: incorporation.onbis.gov.on.ca
-  version: '1.0.31'
+  version: '1.0.32'
   attributes:
     - company_number
     - associated_company
@@ -15,7 +15,7 @@
     - end_date
 
 - name: address.onbis.gov.on.ca
-  version: '1.0.31'
+  version: '1.0.32'
   attributes:
     - company_number
     - associated_company
@@ -30,7 +30,7 @@
     - end_date
 
 - name: doing_business_as.onbis.gov.on.ca
-  version: '1.0.31'
+  version: '1.0.32'
   attributes:
     - dba_number
     - corp_number

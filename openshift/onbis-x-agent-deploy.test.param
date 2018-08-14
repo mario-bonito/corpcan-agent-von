@@ -1,0 +1,30 @@
+#=========================================================
+# OpenShift template parameters for:
+# Component: .
+# Template File: templates/onbis-x-agent/onbis-x-agent-deploy.json
+#=========================================================
+# NAME=onbis-x-agent
+# IMAGE_NAMESPACE=ontvon-von-ont-registries-agent-tools
+TAG_NAME=test
+APPLICATION_DOMAIN=onbis-x-agent-ontvon-von-ont-registries-agent-test.pathfinder.gov.bc.ca
+APPLICATION_URL=https://onbis-x-test.pathfinder.gov.bc.ca
+# CONFIG_ROOT=../config
+# HOST_PORT=8080
+# ENVIRONMENT=default
+# ENABLE_GUNICORN=1
+INDY_LEDGER_URL=http://159.89.125.134
+# FORMS=
+# ISSUERS=
+# LOG_LEVEL=
+# PYTHON_ENV=development
+TOB_API_URL=https://ontvon-von-test.pathfinder.gov.bc.ca/api
+TOB_APP_URL=https://ontvon-von-test.pathfinder.gov.bc.ca
+TOB_INDY_DID=
+TOB_INDY_SEED=the_org_book_on_test_00000000000
+WALLET_SEED_ONBIS=ont_reg_agent_test_0000000000000
+# MOUNT_PATH=/home/indy/.indy_client/wallet
+# PERSISTENT_VOLUME_SIZE=1Gi
+# CPU_LIMIT=0
+# MEMORY_LIMIT=0Mi
+# CPU_REQUEST=0
+# MEMORY_REQUEST=0Mi
