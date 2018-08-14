@@ -1,5 +1,5 @@
 issuers:
-  ONBIS:
+  onbis:
     name: Ontario Business Registries
     abbreviation: ONBIS
     email: onbis@ontario.ca
