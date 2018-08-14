@@ -270,7 +270,7 @@
       "displayName": "Application Url",
       "description": "The application URL.",
       "required": true,
-      "value": "https://onbis-x-dev.pathfinder.gov.bc.ca/"
+      "value": "https://onbis-x-dev.pathfinder.gov.bc.ca"
     },
     {
       "name": "CONFIG_ROOT",
@@ -347,7 +347,7 @@
       "displayName": "TOB Application URL",
       "description": "The URL of the TOB application.",
       "required": true,
-      "value": "https://ontvon-von-dev.pathfinder.gov.bc.ca/"
+      "value": "https://ontvon-von-dev.pathfinder.gov.bc.ca"
     },
     {
       "name": "TOB_INDY_DID",
