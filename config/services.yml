@@ -148,7 +148,7 @@ proof_requests:
     schemas:
       - key:
           name: incorporation.onbis.gov.on.ca
-          version: '1.0.31'
+          version: '1.0.32'
         attributes:
           - company_number
           - company_name
