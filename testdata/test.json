@@ -1,0 +1,70 @@
+[
+  {
+    "schema": "registration.onbis.gov.on.ca",
+    "version": "1.0.0",
+    "attributes": {
+      "business_number": "1386589",
+      "associated_business": "",
+      "business_name": "1386589 ONTARIO LIMITED",
+      "name_effective": "19991122",
+      "business_status": "ONBIS_BUSINESS_STATUS_0",
+      "status_effective": "20000128",
+      "business_type": "ONBIS_BUSINESS_TYPE_A",
+      "registered_jurisdiction": "ON",
+      "extra_provincial": "N",
+      "home_jurisdiction": "ONTARIO",
+      "effective_date": "19991122",
+      "end_date": ""
+    }
+  },
+  {
+    "schema": "address.onbis.gov.on.ca",
+    "version": "1.0.0",
+    "attributes": {
+      "business_number": "1386589",
+      "addressee": "",
+      "address_type": "REGISTERED/HEAD OFFICE ADDRESS",
+      "civic_address": "1100 DAVIS DRIVE, SUITE UNIT 6 BUILDING D",
+      "municipality": "NEWMARKET",
+      "province": "ON",
+      "postal_code": "L3Y 7V1",
+      "country": "CA",
+      "effective_date": "",
+      "end_date": ""
+    }
+  },
+  {
+    "schema": "registration.onbis.gov.on.ca",
+    "version": "1.0.0",
+    "attributes": {
+      "business_number": "100001395",
+      "associated_business": "1386589",
+      "business_name": "MAXI MART",
+      "name_effective": "20000104",
+      "business_status": "ONBIS_BUSINESS_STATUS_0",
+      "status_effective": "20141112",
+      "business_type": "ONBIS_BUSINESS_TYPE_AN",
+      "registered_jurisdiction": "ON",
+      "extra_provincial": "N",
+      "home_jurisdiction": "ONTARIO",
+      "effective_date": "20000104",
+      "end_date": "20050104"
+    }
+  },
+  {
+    "schema": "address.onbis.gov.on.ca",
+    "version": "1.0.0",
+    "attributes": {
+      "business_number": "100001395",
+      "addressee": "",
+      "address_type": "PRINCIPAL PLACE OF BUSINESS",
+      "civic_address": "1100 DAVIS DRIVE, SUITE BLDG B-6",
+      "municipality": "NEWMARKET",
+      "province": "ON",
+      "postal_code": "L3Y 8W8",
+      "country": "CA",
+      "effective_date": "",
+      "end_date": ""
+    }
+  }
+]

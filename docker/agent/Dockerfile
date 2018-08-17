@@ -6,7 +6,7 @@ WORKDIR $HOME
 RUN pip install --no-cache-dir \
     gunicorn \
     git+https://github.com/PSPC-SPAC-buyandsell/didauth.git@v1.1 \
-    git+https://github.com/PSPC-SPAC-buyandsell/von-x.git@v2
+    git+https://github.com/weiiv/von-x.git@v2
 
 # `ADD --chown=` is not available in OpenShift yet.
 # ADD --chown=indy:indy . $HOME

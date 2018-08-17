@@ -15,28 +15,34 @@ issuers:
 
     credential_types:
       - description: Business Registration
-        schema: incorporation.onbis.gov.on.ca
+        schema: registration.onbis.gov.on.ca
         issuer_url: $APPLICATION_URL_INCORP
         topic: 
+          parent_source_id:
+            input: associated_business
+            from: claim
+          parent_type:
+            input: registration
+            from: value
           source_id:
-            input: company_number
+            input: business_number
             from: claim
           type:
-            input: incorporation
+            input: registration
             from: value
         mapping:
           - model: name
             fields:
               text:
-                input: company_name
+                input: business_name
                 from: claim
               type:
-                input: company_name
+                input: business_name
                 from: value
           - model: category
             fields:
               text:
-                input: company_status
+                input: business_status
                 from: claim
               type:
                 input: topic_status
@@ -49,65 +55,22 @@ issuers:
                 input: topic_type
                 from: value
 
-      - description: Doing Business As
-        schema: doing_business_as.onbis.gov.on.ca
-        issuer_url: $APPLICATION_URL_DBA
-        topic: 
-          parent_source_id:
-            input: corp_number
-            from: claim
-          parent_type:
-            input: incorporation
-            from: value
-          source_id:
-            input: dba_number
-            from: claim
-          type:
-            input: doing_business_as
-            from: value
-        mapping:
-          - model: name
-            fields:
-              text:
-                input: dba_name
-                from: claim
-                processor:
-                  - string_helpers.uppercase
-              type:
-                input: dba_name
-                from: value
-          - model: category
-            fields:
-              text:
-                input: dba_status
-                from: claim
-              type:
-                input: topic_status
-                from: value
-
-      - description: Registration Address
+      - description: Business Address
         schema: address.onbis.gov.on.ca
         issuer_url: $APPLICATION_URL_ADDRESS
         topic:
           -
             parent_source_id:
-              input: associated_company
+              input: associated_business
               from: claim
             parent_type:
-              input: incorporation
+              input: registration
               from: value
             source_id:
-              input: company_number
+              input: business_number
               from: claim
             type:
-              input: doing_business_as
-              from: value
-          -
-            source_id:
-              input: company_number
-              from: claim
-            type:
-              input: incorporation
+              input: registration
               from: value
         cardinality_fields:
           - address_type
@@ -147,14 +110,13 @@ proof_requests:
     version: '1.0.0'
     schemas:
       - key:
-          name: incorporation.onbis.gov.on.ca
-          version: '1.0.32'
+          name: registration.onbis.gov.on.ca
+          version: '1.0.0'
         attributes:
-          - company_number
-          - company_name
+          - business_number
+          - business_name
           - business_type
-          - addressee
-          - local_address
+          - civic_address
           - municipality
           - province
           - postal_code
