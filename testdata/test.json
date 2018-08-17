@@ -1,7 +1,7 @@
 [
   {
     "schema": "registration.onbis.gov.on.ca",
-    "version": "1.0.0",
+    "version": "1.0.33",
     "attributes": {
       "business_number": "1386589",
       "associated_business": "",
@@ -19,7 +19,7 @@
   },
   {
     "schema": "address.onbis.gov.on.ca",
-    "version": "1.0.0",
+    "version": "1.0.33",
     "attributes": {
       "business_number": "1386589",
       "addressee": "",
@@ -35,7 +35,7 @@
   },
   {
     "schema": "registration.onbis.gov.on.ca",
-    "version": "1.0.0",
+    "version": "1.0.33",
     "attributes": {
       "business_number": "100001395",
       "associated_business": "1386589",
@@ -53,7 +53,7 @@
   },
   {
     "schema": "address.onbis.gov.on.ca",
-    "version": "1.0.0",
+    "version": "1.0.33",
     "attributes": {
       "business_number": "100001395",
       "addressee": "",
