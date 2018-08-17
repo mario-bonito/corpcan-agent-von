@@ -5,6 +5,8 @@
     - associated_org
     - org_name
     - org_name_effective
+    - org_name_trans
+    - org_name_trans_effective
     - org_reg_status
     - org_status_effective
     - org_type

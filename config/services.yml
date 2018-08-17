@@ -1,7 +1,7 @@
 issuers:
   onbis:
-    name: Ontario Business Registries
-    abbreviation: ONBIS
+    name: Ministry of Government and Consumer Services
+    abbreviation: MGCS
     email: onbis@ontario.ca
     url: $APPLICATION_URL
 
@@ -19,7 +19,7 @@ issuers:
         issuer_url: $APPLICATION_URL_INCORP
         topic: 
           parent_source_id:
-            input: associated_business
+            input: associated_org
             from: claim
           parent_type:
             input: incorporation
@@ -60,12 +60,6 @@ issuers:
         issuer_url: $APPLICATION_URL_ADDRESS
         topic:
           -
-            parent_source_id:
-              input: associated_business
-              from: claim
-            parent_type:
-              input: incorporation
-              from: value
             source_id:
               input: org_registry_id
               from: claim
@@ -115,6 +109,8 @@ proof_requests:
         attributes:
           - org_registry_id
           - org_name
+          - org_name_trans
+          - org_reg_status
           - org_type
           - civic_address
           - municipality
