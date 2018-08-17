@@ -15,41 +15,41 @@ issuers:
 
     credential_types:
       - description: Business Registration
-        schema: registration.onbis.gov.on.ca
+        schema: incorporation.onbis.gov.on.ca
         issuer_url: $APPLICATION_URL_INCORP
         topic: 
           parent_source_id:
             input: associated_business
             from: claim
           parent_type:
-            input: registration
+            input: incorporation
             from: value
           source_id:
-            input: business_number
+            input: org_registry_id
             from: claim
           type:
-            input: registration
+            input: incorporation
             from: value
         mapping:
           - model: name
             fields:
               text:
-                input: business_name
+                input: org_name
                 from: claim
               type:
-                input: business_name
+                input: org_name
                 from: value
           - model: category
             fields:
               text:
-                input: business_status
+                input: org_reg_status
                 from: claim
               type:
                 input: topic_status
                 from: value
             fields:
               text:
-                input: business_type
+                input: org_type
                 from: claim
               type:
                 input: topic_type
@@ -64,13 +64,13 @@ issuers:
               input: associated_business
               from: claim
             parent_type:
-              input: registration
+              input: incorporation
               from: value
             source_id:
-              input: business_number
+              input: org_registry_id
               from: claim
             type:
-              input: registration
+              input: incorporation
               from: value
         cardinality_fields:
           - address_type
@@ -106,16 +106,16 @@ issuers:
                 from: claim
                 
 proof_requests:
-  registration:
+  incorporation:
     version: '1.0.0'
     schemas:
       - key:
-          name: registration.onbis.gov.on.ca
-          version: '1.0.0'
+          name: incorporation.onbis.gov.on.ca
+          version: '1.0.33'
         attributes:
-          - business_number
-          - business_name
-          - business_type
+          - org_registry_id
+          - org_name
+          - org_type
           - civic_address
           - municipality
           - province

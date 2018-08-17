@@ -1,15 +1,15 @@
-- name: registration.onbis.gov.on.ca
+- name: incorporation.onbis.gov.on.ca
   version: '1.0.33'
   attributes:
-    - business_number
-    - associated_business
-    - business_name
-    - name_effective
-    - business_status
-    - status_effective
-    - business_type
+    - org_registry_id
+    - associated_org
+    - org_name
+    - org_name_effective
+    - org_reg_status
+    - org_status_effective
+    - org_type
     - registered_jurisdiction
-    - extra_provincial
+    - registration_type
     - home_jurisdiction
     - effective_date
     - end_date
@@ -17,7 +17,7 @@
 - name: address.onbis.gov.on.ca
   version: '1.0.33'
   attributes:
-    - business_number
+    - org_registry_id
     - addressee
     - address_type
     - civic_address

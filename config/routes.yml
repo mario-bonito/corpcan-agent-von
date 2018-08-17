@@ -21,7 +21,7 @@ forms:
       - src: js/onbis.js
 
     fields:
-      - name: business_name
+      - name: org_name
         label: Business Name
         type: text
         required: true
@@ -33,11 +33,11 @@ forms:
 
     mapping:
       attributes:
-        - name: business_number
+        - name: org_registry_id
           from: literal
           source: null
 
-        - name: business_type
+        - name: org_type
           from: literal
           source: CO
 

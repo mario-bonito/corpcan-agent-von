@@ -55,7 +55,7 @@ async def request_proof(http_client, proof_name, proof_filters):
     print('Response from von-x:\n\n{}\n'.format(result_json))
 
 async def request_all(entity_ids):
-    async with aiohttp.ClientSession() as http_client:
+    async with aiohttp.ClientSession(trust_env=True) as http_client:
         for entity_id in entity_ids:
             await request_proof(http_client, 'registration', {'legal_entity_id': entity_id})
 

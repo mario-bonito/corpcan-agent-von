@@ -79,7 +79,7 @@ async def issue_cred(http_client, cred_path, ident):
 
 async def submit_all(cred_paths, parallel=True):
     start = time.time()
-    async with aiohttp.ClientSession() as http_client:
+    async with aiohttp.ClientSession(trust_env=True) as http_client:
         all = []
         idx = 1
         for cred_path in cred_paths:
