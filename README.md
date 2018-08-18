@@ -1,4 +1,4 @@
-# permitify-x
+# onbis-x
 
 This project demonstrates basic application for deploying the [VON-X](https://github.com/PSPC-SPAC-buyandsell/von-x) library, in order to enable issuer registration and credential submission to [TheOrgBook](https://github.com/bcgov/TheOrgBook).
 It includes Docker tooling for deployment of the application on gunicorn, behind a Caddy reverse proxy.
