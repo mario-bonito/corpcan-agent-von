@@ -1,6 +1,6 @@
 [
   {
-    "schema": "incorporation.onbis.gov.on.ca",
+    "schema": "registration.onbis.gov.on.ca",
     "version": "1.0.33",
     "attributes": {
       "org_registry_id": "1386589",
@@ -36,7 +36,7 @@
     }
   },
   {
-    "schema": "incorporation.onbis.gov.on.ca",
+    "schema": "registration.onbis.gov.on.ca",
     "version": "1.0.33",
     "attributes": {
       "org_registry_id": "100001395",

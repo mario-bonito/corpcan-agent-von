@@ -34,8 +34,8 @@ forms:
     mapping:
       attributes:
         - name: org_registry_id
-          from: literal
-          source: null
+          from: helper
+          source: uuid
 
         - name: org_type
           from: literal

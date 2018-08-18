@@ -1,4 +1,4 @@
-- name: incorporation.onbis.gov.on.ca
+- name: registration.onbis.gov.on.ca
   version: '1.0.33'
   attributes:
     - org_registry_id
