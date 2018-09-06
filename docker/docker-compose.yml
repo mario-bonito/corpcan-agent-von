@@ -18,7 +18,7 @@ services:
     networks:
       - vonx
     ports:
-      - ${WEB_HTTP_PORT:-5006}:${WEB_HOST_PORT:-8080}
+      - ${WEB_HTTP_PORT:-5000}:${WEB_HOST_PORT:-8080}
     volumes:
       - caddy-data:/root/.caddy
       - caddy-logs:/srv/logs
@@ -28,10 +28,10 @@ services:
       context: ..
       dockerfile: docker/agent/Dockerfile
     environment:
-      APPLICATION_URL: ${APPLICATION_URL:-http://localhost:5006}
+      APPLICATION_URL: ${APPLICATION_URL:-http://localhost:5000}
       CONFIG_ROOT: ../config
       ENVIRONMENT: ${ENVIRONMENT:-default}
-      ENABLE_GUNICORN: ${ENABLE_GUNICORN:-1}
+      ENABLE_GUNICORN: ${ENABLE_GUNICORN:-0}
       INDY_LEDGER_URL: ${LEDGER_URL:-http://localhost:9000}
       FORMS: ${FORMS:-}
       ISSUERS: ${ISSUERS:-}
