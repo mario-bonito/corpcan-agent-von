@@ -1,4 +1,4 @@
-# permitify-x
+# onbis-x
 
 This project demonstrates basic application for deploying the [VON-X](https://github.com/PSPC-SPAC-buyandsell/von-x) library, in order to enable issuer registration and credential submission to [TheOrgBook](https://github.com/bcgov/TheOrgBook).
 It includes Docker tooling for deployment of the application on gunicorn, behind a Caddy reverse proxy.
@@ -14,4 +14,4 @@ Once the other components are running, you can build and run this application by
 ./manage.sh start
 ```
 
-The default registration form can then be found at `http://localhost:5006/onbis/incorporation`
+The default registration form can then be found at `http://localhost:5006/onbis/registration`
