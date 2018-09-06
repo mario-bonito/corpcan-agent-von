@@ -1,6 +1,7 @@
 default:
-  APPLICATION_URL_INCORP: $APPLICATION_URL/onbis/incorporation
-  APPLICATION_URL_DBA: $APPLICATION_URL/onbis/dba
+  APPLICATION_URL_REGISTRATION: $APPLICATION_URL/onbis/registration
+  APPLICATION_URL_ADDRESS: $APPLICATION_URL/onbis/address
+  APPLICATION_URL_RELATIONSHIP: $APPLICATION_URL/onbis/relationship
   TEMPLATE_PATH: ../templates
   TOB_API_URL: http://tob-api:8080/api/v2
   TOB_APP_URL: http://localhost:8080

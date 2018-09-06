@@ -1,25 +1,28 @@
 - name: registration.onbis.gov.on.ca
-  version: '1.0.33'
+  version: '1.0.0'
   attributes:
-    - org_registry_id
-    - associated_org
-    - org_name
-    - org_name_effective
-    - org_name_trans
-    - org_name_trans_effective
-    - org_reg_status
-    - org_status_effective
-    - org_type
+    - registration_id
+    - registration_date
+    - registration_expiry_date
+    - registration_renewal_effective
+    - entity_name
+    - entity_name_effective
+    - entity_name_assumed
+    - entity_name_assumed_effective
+    - entity_name_trans
+    - entity_name_trans_effective
+    - entity_status
+    - entity_status_effective
+    - entity_type
     - registered_jurisdiction
-    - registration_type
+    - extra_provincial_registration
     - home_jurisdiction
     - effective_date
-    - end_date
-
+ 
 - name: address.onbis.gov.on.ca
-  version: '1.0.33'
+  version: '1.0.0'
   attributes:
-    - org_registry_id
+    - registration_id
     - addressee
     - address_type
     - civic_address
@@ -27,5 +30,18 @@
     - province
     - postal_code
     - country
+    - address_status
+    - address_effective
     - effective_date
-    - end_date
+ 
+- name: relationship.onbis.gov.on.ca
+  version: '1.0.0'
+  attributes:
+    - registration_id
+    - associated_registration_id
+    - relationship
+    - relationship_description
+    - relationship_status
+    - relationship_status_effective
+    - effective_date
+ 

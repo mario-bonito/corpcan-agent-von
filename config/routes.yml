@@ -21,7 +21,7 @@ forms:
       - src: js/onbis.js
 
     fields:
-      - name: org_name
+      - name: entity_name
         label: Business Name
         type: text
         required: true
@@ -33,18 +33,18 @@ forms:
 
     mapping:
       attributes:
-        - name: org_registry_id
+        - name: registration_id
           from: helper
           source: uuid
 
-        - name: org_type
+        - name: eneity_type
           from: literal
-          source: CO
+          source: null
 
         - name: effective_date
           from: helper
           source: now
 
-        - name: end_date
+        - name: entity_status
           from: literal
           source: null

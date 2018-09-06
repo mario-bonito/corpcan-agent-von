@@ -11,8 +11,8 @@
         to /assets/{1}
     }
 
-    proxy /on-tob {%TOB_API_URL%} {
-        without /on-tob
+    proxy /ontob {%TOB_API_URL%} {
+        without /ontob
     }
 
     proxy / {%AGENT_HOST%}:{%AGENT_PORT%}  {

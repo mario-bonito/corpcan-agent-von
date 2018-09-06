@@ -14,4 +14,4 @@ Once the other components are running, you can build and run this application by
 ./manage.sh start
 ```
 
-The default registration form can then be found at `http://localhost:5006/onbis/registration`
+The default registration form can then be found at `http://localhost:5000/onbis/registration`

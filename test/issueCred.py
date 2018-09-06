@@ -16,18 +16,16 @@
 # limitations under the License.
 #
 
-
 import asyncio
 import argparse
 import json
 import os
 import sys
 import time
-import glob
 
 import aiohttp
 
-DEFAULT_AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5006/onbis')
+DEFAULT_AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5000/onbis')
 
 parser = argparse.ArgumentParser(description='Issue one or more credentials via von-x')
 parser.add_argument('paths', nargs='+', help='the path to a credential JSON file')
@@ -43,19 +41,25 @@ PARALLEL = args.parallel
 async def issue_cred(http_client, cred_path, ident):
     with open(cred_path) as cred_file:
         creds = json.load(cred_file)
+    if not creds:
+        raise ValueError('Credential could not be parsed')
 
     for cred in creds:
-        if not cred:
-            raise ValueError('Credential could not be parsed')
         schema = cred.get('schema')
-        if not schema:
-            raise ValueError('No schema defined')
-        version = cred.get('version', '')
-        attrs = cred.get('attributes')
+        if schema:
+            version = cred.get('version', '')
+            attrs = cred.get('attributes')
+        else:
+            schema = os.path.splitext(os.path.basename(cred_path))[0]
+            schema = schema[schema.find('.')+1:]
+            version = ''
+            attrs = cred
+            if not schema:
+                raise ValueError('No schema defined')
         if not attrs:
             raise ValueError('No schema attributes defined')
 
-        print('Submitting credential {} {}'.format(ident, cred_path))
+        print('Submitting credential {} {}'.format(schema, cred_path))
 
         start = time.time()
         try:
@@ -94,5 +98,4 @@ async def submit_all(cred_paths, parallel=True):
     elapsed = time.time() - start
     print('Total time: {:.2f}s'.format(elapsed))
 
-if __name__ == "__main__":
-    asyncio.get_event_loop().run_until_complete(submit_all(CRED_PATHS, PARALLEL))
+asyncio.get_event_loop().run_until_complete(submit_all(CRED_PATHS, PARALLEL))

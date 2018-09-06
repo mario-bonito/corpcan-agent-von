@@ -2,8 +2,8 @@ issuers:
   onbis:
     name: Ministry of Government and Consumer Services
     abbreviation: MGCS
-    email: onbis@ontario.ca
-    url: $APPLICATION_URL
+    email: 393 University Avenue, Suite 200, Toronto, ON  M5G 2M2
+    url: http://www.ontario.ca
 
     connection:
       type: TheOrgBook
@@ -16,41 +16,27 @@ issuers:
     credential_types:
       - description: Business Registration
         schema: registration.onbis.gov.on.ca
-        issuer_url: $APPLICATION_URL_INCORP
-        topic: 
-          -
-            parent_source_id:
-              input: associated_org
-              from: claim
-            parent_type:
-              input: registration
-              from: value
-            source_id:
-              input: org_registry_id
-              from: claim
-            type:
-              input: registration
-              from: value
-          -
-            source_id:
-              input: org_registry_id
-              from: claim
-            type:
-              input: registration
-              from: value
+        issuer_url: $APPLICATION_URL_REGISTRATION
+        topic:
+          source_id:
+            input: registration_id
+            from: claim
+          type:
+            input: registration
+            from: value
         mapping:
           - model: name
             fields:
               text:
-                input: org_name
+                input: entity_name
                 from: claim
               type:
-                input: org_name
+                input: entity_name
                 from: value
           - model: category
             fields:
               value:
-                input: org_reg_status
+                input: entity_status
                 from: claim
               type:
                 input: topic_status
@@ -58,7 +44,7 @@ issuers:
           - model: category
             fields:
               value:
-                input: org_type
+                input: entity_type
                 from: claim
               type:
                 input: topic_type
@@ -70,7 +56,7 @@ issuers:
         topic:
           -
             source_id:
-              input: org_registry_id
+              input: registration_id
               from: claim
             type:
               input: registration
@@ -104,27 +90,39 @@ issuers:
               effective_date:
                 input: effective_date
                 from: claim
-              end_date:
-                input: end_date
-                from: claim
-                
+
+      - description: Relationship
+        schema: relationship.onbis.gov.on.ca
+        issuer_url: $APPLICATION_URL_RELATIONSHIP
+        topic:
+          related_source_id:
+            input: associated_registration_id
+            from: claim
+          related_type:
+            input: registration
+            from: value
+          source_id:
+            input: registration_id
+            from: claim
+          type:
+            input: registration
+            from: value
+
+verifiers:
+  ontob:
+    name: ON OrgBook
+    connection:
+      type: TheOrgBook
+      api_url: $TOB_API_URL
+      sign_target: false
+    wallet:
+      seed: "orgbook.von.gov.on.ca_dev_000000"
+
 proof_requests:
   registration:
     version: '1.0.0'
     schemas:
       - key:
           name: registration.onbis.gov.on.ca
-          version: '1.0.33'
+          version: '1.0.0'
         attributes:
-          - org_registry_id
-          - org_name
-          - org_name_trans
-          - org_reg_status
-          - org_type
-          - civic_address
-          - municipality
-          - province
-          - postal_code
-          - country
-          - effective_date
-          - end_date

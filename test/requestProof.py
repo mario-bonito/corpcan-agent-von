@@ -21,26 +21,34 @@
 #
 
 import asyncio
+import argparse
 import json
 import os
 import sys
 
 import aiohttp
 
-AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5006/onbis')
+DEFAULT_AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5000/onbis')
 
-if len(sys.argv) < 2:
-    raise ValueError("Expected legal_entity_id(s)")
-ENTITY_IDS = sys.argv[1:]
+parser = argparse.ArgumentParser(description='Proof one or more credentials via von-x')
+parser.add_argument('credential_ids', nargs='+', help='the credential IDs to be proofed')
+parser.add_argument('-n', '--name', default='registration', help='the name of the proof request')
+parser.add_argument('-u', '--url', default=DEFAULT_AGENT_URL, help='the URL of the von-x service')
 
-async def request_proof(http_client, proof_name, proof_filters):
-    print('Requesting proof: {} {}'.format(proof_name, proof_filters))
+args = parser.parse_args()
+
+AGENT_URL = args.url
+PROOF_NAME = args.name
+CREDENTIAL_IDS = args.credential_ids
+
+async def request_proof(http_client, proof_name, credential_ids):
+    print('Requesting proof: {} {}'.format(proof_name, credential_ids))
 
     try:
         response = await http_client.post(
             '{}/request-proof'.format(AGENT_URL),
             params={'name': proof_name},
-            json={'filters': proof_filters},
+            json=credential_ids,
         )
         if response.status != 200:
             raise RuntimeError(
@@ -54,9 +62,9 @@ async def request_proof(http_client, proof_name, proof_filters):
 
     print('Response from von-x:\n\n{}\n'.format(result_json))
 
-async def request_all(entity_ids):
+async def request_all(CREDENTIAL_IDS):
     async with aiohttp.ClientSession(trust_env=True) as http_client:
-        for entity_id in entity_ids:
-            await request_proof(http_client, 'registration', {'legal_entity_id': entity_id})
+        for credential_id in CREDENTIAL_IDS:
+            await request_proof(http_client, PROOF_NAME, {'credential_ids': credential_id})
 
-asyncio.get_event_loop().run_until_complete(request_all(ENTITY_IDS))
+asyncio.get_event_loop().run_until_complete(request_all(CREDENTIAL_IDS))

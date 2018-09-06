@@ -1,74 +1,91 @@
 [
   {
     "schema": "registration.onbis.gov.on.ca",
-    "version": "1.0.33",
+    "version": "1.0.0",
     "attributes": {
-      "org_registry_id": "1386589",
-      "associated_org": "",
-      "org_name": "1386589 ONTARIO LIMITED",
-      "name_effective": "19991122",
-      "org_name_trans": "",
-      "org_name_trans_effective": "",
-      "org_reg_status": "ONBIS_BUSINESS_STATUS_0",
-      "status_effective": "20000128",
-      "org_type": "ONBIS_BUSINESS_TYPE_A",
-      "registered_jurisdiction": "ON",
-      "registration_type": "N",
-      "home_jurisdiction": "ONTARIO",
-      "effective_date": "19991122",
-      "end_date": ""
+      "registration_id":"1423",
+      "registration_date":"1892-04-14",
+      "registration_expiry_date":"2003-01-01",
+      "registration_renewal_effective":"",
+      "entity_name":"CANADIAN NIAGARA POWER COMPANY, LIMITED/ SOCIETE CANADIENNE D'ENERGIE NIAGARA LIMITEE",
+      "entity_name_effective":"1994-12-09",
+      "entity_name_assumed": "",
+      "entity_name_assumed_effective": "",
+      "entity_name_trans":"",
+      "entity_name_trans_effective":"",
+      "entity_status":"ONBIS_BUSINESS_STATUS_F",
+      "entity_status_effective":"2003-01-01",
+      "entity_type":"ONBIS_BUSINESS_TYPE_A",
+      "registered_jurisdiction":"ON",
+      "extra_provincial_registration":"N",
+      "home_jurisdiction":"ONTARIO",
+      "effective_date":"2003-01-01"
     }
   },
   {
     "schema": "address.onbis.gov.on.ca",
-    "version": "1.0.33",
+    "version": "1.0.0",
     "attributes": {
-      "org_registry_id": "1386589",
-      "addressee": "",
-      "address_type": "REGISTERED/HEAD OFFICE ADDRESS",
-      "civic_address": "1100 DAVIS DRIVE, SUITE UNIT 6 BUILDING D",
-      "municipality": "NEWMARKET",
-      "province": "ON",
-      "postal_code": "L3Y 7V1",
-      "country": "CA",
-      "effective_date": "",
-      "end_date": ""
+      "registration_id":"1423",
+      "addressee":"",
+      "address_type":"REGISTERED/HEAD OFFICE ADDRESS",
+      "civic_address":"1130 BERTIE STREET PO BOX 1218",
+      "municipality":"FORT ERIE",
+      "province":"ON",
+      "postal_code":"L2A 5Y2",
+      "country":"CA",
+      "effective_date":"2002-08-20"
     }
   },
   {
     "schema": "registration.onbis.gov.on.ca",
-    "version": "1.0.33",
+    "version": "1.0.0",
     "attributes": {
-      "org_registry_id": "100001395",
-      "associated_org": "1386589",
-      "org_name": "MAXI MART",
-      "name_effective": "20000104",
-      "org_name_trans": "MAX MART (FR)",
-      "org_name_trans_effective": "",
-      "org_reg_status": "ONBIS_BUSINESS_STATUS_0",
-      "status_effective": "20141112",
-      "org_type": "ONBIS_BUSINESS_TYPE_AN",
+      "registration_id": "1554948",
+      "registration_date": "1999-11-29",
+      "registration_expiry_date": "2004-11-28",
+      "registration_renewal_effective": "",
+      "entity_name": "THE 1999 LIZ EARLEY LIMITED PARTNERSHIP",
+      "entity_name_effective": "1999-11-29",
+      "entity_name_assumed": "",
+      "entity_name_assumed_effective": "",
+      "entity_name_trans": "",
+      "entity_name_trans_effective": "",
+      "entity_status": "ONBIS_BUSINESS_STATUS_0",
+      "entity_status_effective": "1999-11-29",
+      "entity_type": "ONBIS_BUSINESS_TYPE_LP",
       "registered_jurisdiction": "ON",
-      "registration_type": "N",
+      "extra_provincial_registration": "N",
       "home_jurisdiction": "ONTARIO",
-      "effective_date": "20000104",
-      "end_date": "20050104"
+      "effective_date": "1999-11-29"
     }
   },
   {
     "schema": "address.onbis.gov.on.ca",
-    "version": "1.0.33",
+    "version": "1.0.0",
     "attributes": {
-      "org_registry_id": "100001395",
+      "registration_id": "1554948",
       "addressee": "",
       "address_type": "PRINCIPAL PLACE OF BUSINESS",
-      "civic_address": "1100 DAVIS DRIVE, SUITE BLDG B-6",
-      "municipality": "NEWMARKET",
+      "civic_address": "4 BEECHWOOD COURT",
+      "municipality": "ST CATHARINES",
       "province": "ON",
-      "postal_code": "L3Y 8W8",
+      "postal_code": "L2N 3H7",
       "country": "CA",
-      "effective_date": "",
-      "end_date": ""
+      "effective_date": "1999-11-29"
+    }
+  },
+  {
+    "schema": "relationship.onbis.gov.on.ca",
+    "version": "1.0.0",
+    "attributes": {
+      "registration_id":"1423",
+      "associated_registration_id":"1554948",
+      "relationship":"ONBIS_REL_AMALG_TO",
+      "relationship_description":"",
+      "relationship_status":"",
+      "relationship_status_effective":"",
+      "effective_date":"2003-01-01"
     }
   }
 ]
