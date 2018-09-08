@@ -14,7 +14,7 @@ services:
       AGENT_HOST: ${AGENT_HOST:-agent}
       AGENT_PORT: ${AGENT_PORT:-8000}
     links:
-      - onbis-agent:vonx-agent
+      - onbis-agent:agent
     networks:
       - vonx
     ports:

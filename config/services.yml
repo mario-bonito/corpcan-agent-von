@@ -49,6 +49,22 @@ issuers:
               type:
                 input: topic_type
                 from: value
+          - model: category
+            fields:
+              value:
+                input: registration_date
+                from: claim
+              type:
+                input: topic_registration_date
+                from: value
+          - model: category
+            fields:
+              value:
+                input: entity_status_effective
+                from: claim
+              type:
+                input: topic_status_effective_date
+                from: value
 
       - description: Business Address
         schema: address.onbis.gov.on.ca
