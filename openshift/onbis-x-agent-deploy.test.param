@@ -6,13 +6,15 @@
 # NAME=onbis-x-agent
 # IMAGE_NAMESPACE=ontvon-von-ont-registries-agent-tools
 TAG_NAME=test
-APPLICATION_DOMAIN=onbis-x-agent-ontvon-von-ont-registries-agent-test.pathfinder.gov.bc.ca
 APPLICATION_URL=https://onbis-x-test.pathfinder.gov.bc.ca
 # CONFIG_ROOT=../config
 # HOST_PORT=8080
 # ENVIRONMENT=default
 # ENABLE_GUNICORN=1
+# GENESIS_URL=
 INDY_LEDGER_URL=http://138.197.138.255
+# LEDGER_PROTOCOL_VERSION=
+# AUTO_REGISTER_DID=1
 # FORMS=
 # ISSUERS=
 # LOG_LEVEL=
