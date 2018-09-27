@@ -123,22 +123,3 @@ issuers:
           type:
             input: registration
             from: value
-
-verifiers:
-  ontob:
-    name: ON OrgBook
-    connection:
-      type: TheOrgBook
-      api_url: $TOB_API_URL
-      sign_target: false
-    wallet:
-      seed: "orgbook.von.gov.on.ca_dev_000000"
-
-proof_requests:
-  registration:
-    version: '1.0.0'
-    schemas:
-      - key:
-          name: registration.onbis.gov.on.ca
-          version: '1.0.0'
-        attributes:
