@@ -39,9 +39,15 @@ services:
       PYTHON_ENV: ${PYTHON_ENV:-development}
       TOB_API_URL: ${TOB_API_URL:-}
       TOB_APP_URL: ${TOB_APP_URL:-}
-      TOB_INDY_DID: ${TOB_INDY_DID:-}
-      TOB_INDY_SEED: ${TOB_INDY_SEED:-}
+      WALLET_TYPE: ${WALLET_TYPE}
+      POSTGRESQL_WALLET_HOST: ${POSTGRESQL_WALLET_HOST}
+      POSTGRESQL_WALLET_PORT: ${POSTGRESQL_WALLET_PORT}
+      POSTGRESQL_WALLET_USER: ${POSTGRESQL_USER}
+      POSTGRESQL_WALLET_PASSWORD: ${POSTGRESQL_PASSWORD}
+      POSTGRESQL_WALLET_ADMIN_PASSWORD: ${POSTGRESQL_ADMIN_PASSWORD}
+      WALLET_ENCRYPTION_KEY: ${WALLET_ENCRYPTION_KEY}
       WALLET_SEED_ONBIS: ${WALLET_SEED_ONBIS:-}
+      ISSUER_WALLET_DID: ${ISSUER_WALLET_DID}
     external_links:
        - tob_tob-api_1:tob-api
     networks:
@@ -51,13 +57,30 @@ services:
       - 8000
     ports:
       - 8000:8000
+    depends_on:
+      - wallet-db
     volumes:
       - onbis-agent-wallet:/home/indy/.indy_client/wallet
+
+  wallet-db:
+    image: registry.access.redhat.com/rhscl/postgresql-95-rhel7:9.5
+    environment:
+      - POSTGRESQL_USER=${POSTGRESQL_USER}
+      - POSTGRESQL_PASSWORD=${POSTGRESQL_PASSWORD}
+      - POSTGRESQL_DATABASE=${POSTGRESQL_DATABASE}
+      - POSTGRESQL_ADMIN_PASSWORD=${POSTGRESQL_ADMIN_PASSWORD}
+    networks:
+      - orgbook
+    ports:
+      - 5433:5432
+    volumes:
+      - wallet-db:/var/lib/pgsql/data
 
 volumes:
   caddy-data:
   caddy-logs:
   onbis-agent-wallet:
+  wallet-db:
 
 networks:
   vonx:
