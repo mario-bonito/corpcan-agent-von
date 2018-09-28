@@ -136,12 +136,12 @@ issuers:
             input: effective_date
             from: claim
         topic:
-            source_id:
-              input: registration_id
-              from: claim
-            type:
-              input: registration
-              from: value
+          source_id:
+            input: registration_id
+            from: claim
+          type:
+            input: registration
+            from: value
         cardinality_fields:
           - address_type
         mapping:
