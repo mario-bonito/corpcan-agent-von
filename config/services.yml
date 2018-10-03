@@ -128,6 +128,28 @@ issuers:
               value:
                 input: entity_type
                 from: claim
+          - model: attribute
+            fields:
+              type:
+                input: registered_jurisdiction
+                from: value
+              format:
+                input: jurisdiction
+                from: value
+              value:
+                input: registered_jurisdiction
+                from: claim
+          - model: attribute
+            fields:
+              type:
+                input: home_jurisdiction
+                from: value
+              format:
+                input: jurisdiction
+                from: value
+              value:
+                input: home_jurisdiction
+                from: claim
 
       - description: Address
         schema: address.onbis.gov.on.ca
@@ -193,10 +215,13 @@ issuers:
         cardinality_fields:
           - associated_registration_id
         mapping:
-          - model: category
+          - model: attribute
             fields:
               type:
                 input: relationship
+                from: value
+              format:
+                input: category
                 from: value
               value:
                 input: relationship
@@ -206,13 +231,19 @@ issuers:
               type:
                 input: relationship_description
                 from: value
+              format:
+                input: relationship
+                from: value
               value:
                 input: relationship_description
                 from: claim
-          - model: category
+          - model: attribute
             fields:
               type:
                 input: relationship_status
+                from: value
+              format:
+                input: category
                 from: value
               value:
                 input: relationship_status
