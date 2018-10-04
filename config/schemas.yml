@@ -1,5 +1,5 @@
 - name: registration.onbis.gov.on.ca
-  version: '1.0.0'
+  version: '1.0.1'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -54,7 +54,7 @@
       required: Y
  
 - name: address.onbis.gov.on.ca
-  version: '1.0.0'
+  version: '1.0.1'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -88,7 +88,7 @@
       required: Y
  
 - name: relationship.onbis.gov.on.ca
-  version: '1.0.0'
+  version: '1.0.1'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
