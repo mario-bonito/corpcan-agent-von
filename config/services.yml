@@ -231,9 +231,6 @@ issuers:
               type:
                 input: relationship_description
                 from: value
-              format:
-                input: relationship
-                from: value
               value:
                 input: relationship_description
                 from: claim

@@ -53,10 +53,6 @@ services:
     networks:
       - orgbook
       - vonx
-    expose:
-      - 8000
-    ports:
-      - 8000:8000
     depends_on:
       - wallet-db
     volumes:
@@ -72,7 +68,7 @@ services:
     networks:
       - orgbook
     ports:
-      - 5433:5432
+      - 5431:5432
     volumes:
       - wallet-db:/var/lib/pgsql/data
 
