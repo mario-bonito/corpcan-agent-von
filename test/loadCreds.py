@@ -79,7 +79,7 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt):
 
 async def issue_all(loop, paths, parallel):
     start_time = time.time()
-    async with aiohttp.ClientSession(loop=loop, trust_env=True) as session:
+    async with aiohttp.ClientSession(loop=loop, trust_env=False) as session:
         tasks = [
             issue_cred(session, path, start, end, cnt)
             for path in paths for cnt, (start, end) in enumerate(split_points(path, parallel))
