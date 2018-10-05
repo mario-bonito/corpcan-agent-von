@@ -47,7 +47,7 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt):
                 cred = json.loads(cred_json)
                 if not cred: raise ValueError('Credential could not be parsed.')
                 schema = cred.get('schema')
-                version = '' #cred.get('version', '')
+                version = cred.get('version', '')
                 attrs = cred.get('attributes')
                 if not schema: raise ValueError('No schema defined.')
                 if not attrs: raise ValueError('Missing attributes.')
