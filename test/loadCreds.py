@@ -38,8 +38,8 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt):
         if done_pos: fp.seek(int(done_pos))
         else: fp.seek(start_point)
 
-        cred_json = fp.readline()
         current_point = fp.tell()
+        cred_json = fp.readline() if current_point < end_point else None
         idx = 1
         while cred_json:
             start_time = time.time()
@@ -47,7 +47,7 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt):
                 cred = json.loads(cred_json)
                 if not cred: raise ValueError('Credential could not be parsed.')
                 schema = cred.get('schema')
-                version = cred.get('version', '')
+                version = '' #cred.get('version', '')
                 attrs = cred.get('attributes')
                 if not schema: raise ValueError('No schema defined.')
                 if not attrs: raise ValueError('Missing attributes.')
