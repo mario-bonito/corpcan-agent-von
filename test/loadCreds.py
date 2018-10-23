@@ -1,9 +1,9 @@
-import asyncio
-import argparse
-import json
 import os
 import sys
 import time
+import json
+import argparse
+import asyncio
 import aiohttp
 
 DEFAULT_AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5000/onbis')
@@ -14,6 +14,7 @@ parser.add_argument('-u', '--url', default=DEFAULT_AGENT_URL, help='the URL of t
 parser.add_argument('-p', '--parallel', default='1', help='number of parallel process')
 parser.add_argument('-d', '--tempdir', default='temp', help='temporary directory to hold tracking files')
 parser.add_argument('-s', '--split', action='store_true', help='split files in number of parallels')
+parser.add_argument('-b', '--batch_size', default='1', help='number of credentials in one post')
 
 args = parser.parse_args()
 
@@ -22,16 +23,17 @@ CRED_PATHS = args.paths
 PARALLEL = args.parallel
 TEMPDIR = args.tempdir
 SPLIT = args.split
+BACH_SIZE = args.batch_size
 
-async def issue_cred(session, cred_path, start_point, end_point, split_cnt):
+async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batch_size):
     basename = os.path.basename(cred_path)
     bad = open(TEMPDIR + '/' + basename + '.bad', 'a')
     done_file = TEMPDIR + '/' + basename + f'_{split_cnt}.done'
     done_mode = 'r+' if os.path.exists(done_file) else 'w+'
     done = open(done_file, done_mode)
-    bad.write(f'################################################\n')
-    bad.write(f'#         {time.asctime()}             #\n')
-    bad.write(f'################################################\n\n')
+    #bad.write(f'################################################\n')
+    #bad.write(f'#         {time.asctime()}             #\n')
+    #bad.write(f'################################################\n\n')
 
     with open(cred_path) as fp:
         done_pos = done.readline()
@@ -39,49 +41,56 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt):
         else: fp.seek(start_point)
 
         current_point = fp.tell()
-        cred_json = fp.readline() if current_point < end_point else None
-        idx = 1
-        while cred_json:
-            start_time = time.time()
-            try:
-                cred = json.loads(cred_json)
-                if not cred: raise ValueError('Credential could not be parsed.')
-                schema = cred.get('schema')
-                version = cred.get('version', '')
-                attrs = cred.get('attributes')
-                if not schema: raise ValueError('No schema defined.')
-                if not attrs: raise ValueError('Missing attributes.')
-                
-                async with session.post(
-                    '{}/issue-credential'.format(AGENT_URL),
-                    params={'schema': schema, 'version': version},
-                    json=attrs
-                ) as response:
-                    if response.status != 200: raise ValueError(await response.text())
-                    result_json = await response.json()
-                    if not result_json.get('success'): raise ValueError(result_json)
-            except Exception as e:
-                bad.write(f'({split_cnt},{idx}): {cred_json}{e}\n\n')
-                result_json = {}
-
-            elapsed = time.time() - start_time
-            print(f'{basename}({split_cnt},{idx}): Response from von-x ({elapsed:.2f}s).\n{result_json}\n')
-            done.seek(0)
-            done.write(str(current_point))
-            if current_point < end_point:
+        batch_cnt = 0
+        while current_point < end_point:
+            batch = []
+            cred_cnt = 0
+            while cred_cnt < batch_size and current_point < end_point:
                 cred_json = fp.readline()
                 current_point = fp.tell()
-                idx += 1
-            else:
-                break
+                if (cred_json):
+                    batch.append(json.loads(cred_json))
+                    cred_cnt += 1
+                else:
+                    break
+            batch_cnt += 1
+            cred_json = json.loads(json.dumps(batch))
+
+            start_time = time.time()
+            try:
+                async with session.post(
+                    '{}/issue-credential'.format(AGENT_URL.strip()),
+                    params={},
+                    json=cred_json
+                ) as response:
+                    if response.status != 200:
+                        raise ValueError(await response.text())
+                    result = await response.json()
+                    if isinstance(result, list):
+                        for idx, result_json in enumerate(result):
+                            if not result_json.get('success'):
+                                bad.write(json.dumps(batch[idx]))
+                        result_json = result
+                    else:
+                        if not result_json.get('success'):
+                            bad.write(json.dumps(batch[0]))
+            except Exception as e:
+                for bad_json in batch:
+                    bad.write(json.dumps(bad_json) + '\n')
+                result_json = {"error": e}
+            done.seek(0)
+            done.write(str(current_point))
+            elapsed = time.time() - start_time
+            print(f'{basename}({split_cnt},{batch_cnt}): Response from von-x ({elapsed:.2f}s).\n{result_json}\n')
+
     bad.close()
     done.close()
 
-async def issue_all(loop, paths, parallel):
+async def issue_all(loop, paths, parallel, batch_size):
     start_time = time.time()
     async with aiohttp.ClientSession(loop=loop, trust_env=False) as session:
         tasks = [
-            issue_cred(session, path, start, end, cnt)
+            issue_cred(session, path, start, end, cnt, int(batch_size))
             for path in paths for cnt, (start, end) in enumerate(split_points(path, parallel))
         ]
         if tasks:
@@ -128,5 +137,5 @@ if __name__ == "__main__":
         split_file(CRED_PATHS[0], PARALLEL)
     else:
         loop = asyncio.get_event_loop()
-        loop.run_until_complete(issue_all(loop, CRED_PATHS, PARALLEL))
+        loop.run_until_complete(issue_all(loop, CRED_PATHS, PARALLEL, BACH_SIZE))
     
