@@ -8,7 +8,8 @@ def DESTINATION_TAG = 'prod'
 def APP_NAMES = [
   'postgresql',
   'onbis-x-proxy',
-  'onbis-x-agent']
+  'onbis-x-agent',
+  'backup']
 
 node {
   properties([[$class: 'BuildDiscarderProperty', strategy: [$class: 'LogRotator', artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '10']]])
