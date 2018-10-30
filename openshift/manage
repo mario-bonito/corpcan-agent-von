@@ -13,10 +13,6 @@ usage () {
   Usage: 
     $0 [options] [commands]
 
-  Example:
-    $0 -e dev resetEventDatabase
-    - This will drop and recreate the event database in the DEV environment.
-
   Options:
   ========
     -h prints the usage for the script
@@ -31,7 +27,6 @@ usage () {
   ========
     hardReset
       - Delete the persistent indy wallet information.
-      - Drop and recreate the event database.
 
     deleteWallets
       - Delete the local wallets from one or more pods.
