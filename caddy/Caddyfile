@@ -2,9 +2,13 @@
     
     root /srv/
 
+    basicauth /onbis {%AGENT_USER%} {%AGENT_PASSWORD%}
+
     # Uncomment the following to enable logging; requires a mounted volume.
     # log logs/access.log
-    tls {%WEB_HOST_TLS%}  # Use `self_signed` to enable self_signed tls, or `off` to disable tls.  TLS not needed for OpenShift.
+    
+    # Use `self_signed` to enable self_signed tls, or `off` to disable tls.  TLS not needed for OpenShift.
+    tls {%WEB_HOST_TLS%}
 
     rewrite {
         r ^/onbis/assets/(.*)$
