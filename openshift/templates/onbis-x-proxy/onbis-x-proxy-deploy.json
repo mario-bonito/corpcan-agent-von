@@ -9,6 +9,21 @@
   },
   "objects": [
     {
+      "kind": "Secret",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "${NAME}",
+        "labels": {
+          "app": "${NAME}"
+        }
+      },
+      "data": {
+        "password": "${AGENT_PASSWORD}",
+        "user": "${AGENT_USER}"
+      },
+      "type": "Opaque"
+    },
+    {
       "kind": "Service",
       "apiVersion": "v1",
       "metadata": {

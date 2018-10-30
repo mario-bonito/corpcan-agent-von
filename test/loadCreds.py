@@ -88,7 +88,8 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
 
 async def issue_all(loop, paths, parallel, batch_size):
     start_time = time.time()
-    async with aiohttp.ClientSession(loop=loop, trust_env=False) as session:
+    basicAuth = aiohttp.BasicAuth(login='onbisuser', password='onbispass')
+    async with aiohttp.ClientSession(loop=loop, trust_env=True, auth=basicAuth) as session:
         tasks = [
             issue_cred(session, path, start, end, cnt, int(batch_size))
             for path in paths for cnt, (start, end) in enumerate(split_points(path, parallel))
