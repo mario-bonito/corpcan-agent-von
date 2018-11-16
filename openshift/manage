@@ -150,7 +150,7 @@ shift
 case "${_cmd}" in
   hardreset)
     # Allow all of the other parameters to be overridden ...
-    agentPodName=${1:-bcreg-x-agent}
+    agentPodName=${1:-onbis-x-agent}
     walletDbPodName=${2:-wallet-db}
     hardReset "${agentPodName}" "${walletDbPodName}"
     ;;
