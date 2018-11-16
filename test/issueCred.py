@@ -39,7 +39,7 @@ CRED_PATHS = args.paths
 PARALLEL = args.parallel
 
 async def issue_cred(http_client, cred_path, ident):
-    with open(cred_path) as cred_file:
+    with open(cred_path, encoding='iso-8859-1') as cred_file:
         creds = json.load(cred_file)
     if not creds:
         raise ValueError('Credential could not be parsed')
@@ -83,7 +83,8 @@ async def issue_cred(http_client, cred_path, ident):
 
 async def submit_all(cred_paths, parallel=True):
     start = time.time()
-    async with aiohttp.ClientSession(trust_env=True) as http_client:
+    basicAuth = aiohttp.BasicAuth(login='onbisuser', password='onbispass')
+    async with aiohttp.ClientSession(trust_env=True, auth=basicAuth) as http_client:
         all = []
         idx = 1
         for cred_path in cred_paths:
