@@ -35,7 +35,7 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
     #bad.write(f'#         {time.asctime()}             #\n')
     #bad.write(f'################################################\n\n')
 
-    with open(cred_path) as fp:
+    with open(cred_path, encoding='iso-8859-1') as fp:
         done_pos = done.readline()
         if done_pos: fp.seek(int(done_pos))
         else: fp.seek(start_point)
@@ -89,7 +89,7 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
 async def issue_all(loop, paths, parallel, batch_size):
     start_time = time.time()
     basicAuth = aiohttp.BasicAuth(login='onbisuser', password='onbispass')
-    async with aiohttp.ClientSession(loop=loop, trust_env=True, auth=basicAuth) as session:
+    async with aiohttp.ClientSession(loop=loop, trust_env=False, auth=basicAuth) as session:
         tasks = [
             issue_cred(session, path, start, end, cnt, int(batch_size))
             for path in paths for cnt, (start, end) in enumerate(split_points(path, parallel))
