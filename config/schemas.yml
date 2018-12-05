@@ -1,5 +1,5 @@
-- name: registration.von.gov.on.ca
-  version: '1.0.0'
+- name: registration.registries.ca
+  version: '1.0.30'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -59,8 +59,8 @@
       description: Reason for credential issue/update
       required: N
 
-- name: address.von.gov.on.ca
-  version: '1.0.0'
+- name: address.registries.ca
+  version: '1.0.30'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -99,8 +99,8 @@
       description: Reason for credential issue/update
       required: N
 
-- name: relationship.von.gov.on.ca
-  version: '1.0.0'
+- name: relationship.registries.ca
+  version: '1.0.30'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
