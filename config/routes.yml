@@ -6,7 +6,7 @@ forms:
   onbis-incorp:
     path: /onbis/registration
     type: issue-credential
-    schema_name: registration.onbis.gov.on.ca
+    schema_name: registration.von.gov.on.ca
     page_title: Ontario Business Registries
     title: Registration
     template: onbis.index.html

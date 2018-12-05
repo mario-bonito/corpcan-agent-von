@@ -1,6 +1,6 @@
 /* global FORM_HANDLERS, $ */
 
-FORM_HANDLERS['incorporation.onbis.gov.on.ca'] = function (form, response) {
+FORM_HANDLERS['registration.von.gov.on.ca'] = function (form, response) {
   console.log('here')
   if (response.success === true) {
     $(form).find('.legal-entity-id').remove()

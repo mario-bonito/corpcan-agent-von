@@ -1,5 +1,5 @@
-- name: registration.onbis.gov.on.ca
-  version: '1.0.1'
+- name: registration.von.gov.on.ca
+  version: '1.0.0'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -43,7 +43,7 @@
     registered_jurisdiction:
       description: Name of the jurisdiction that registered the organization
       required: N
-    extra_provincial_registration:
+    extra_jurisdictional_registration:
       description: Flag to indicate extra-jurisdictional registrations
       required: N
     home_jurisdiction:
@@ -52,9 +52,15 @@
     effective_date:
       description: Date Credential is effective
       required: Y
- 
-- name: address.onbis.gov.on.ca
-  version: '1.0.1'
+    expiry_date:
+      description: Date Credential expires
+      required: N
+    reason_description:
+      description: Reason for credential issue/update
+      required: N
+
+- name: address.von.gov.on.ca
+  version: '1.0.0'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -86,9 +92,15 @@
     effective_date:
       description: Date Credential is effective
       required: Y
- 
-- name: relationship.onbis.gov.on.ca
-  version: '1.0.1'
+    expiry_date:
+      description: Date Credential expires
+      required: N
+    reason_description:
+      description: Reason for credential issue/update
+      required: N
+
+- name: relationship.von.gov.on.ca
+  version: '1.0.0'
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -111,4 +123,9 @@
     effective_date:
       description: Date Credential is effective
       required: Y
- 
+    expiry_date:
+      description: Date Credential expires
+      required: N
+    reason_description:
+      description: Reason for credential issue/update
+      required: N

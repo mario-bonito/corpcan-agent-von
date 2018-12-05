@@ -29,11 +29,14 @@ issuers:
 
     credential_types:
       - description: Registration
-        schema: registration.onbis.gov.on.ca
+        schema: registration.von.gov.on.ca
         issuer_url: $APPLICATION_URL_REGISTRATION
         credential:
           effective_date:
             input: effective_date
+            from: claim
+          revoked_date:
+            input: expiry_date
             from: claim
         topic:
           source_id:
@@ -150,13 +153,27 @@ issuers:
               value:
                 input: home_jurisdiction
                 from: claim
+          - model: attribute
+            fields:
+              type:
+                input: reason_description
+                from: value
+              format:
+                input: category
+                from: value
+              value:
+                input: reason_description
+                from: claim
 
       - description: Address
-        schema: address.onbis.gov.on.ca
+        schema: address.von.gov.on.ca
         issuer_url: $APPLICATION_URL_ADDRESS
         credential:
           effective_date:
             input: effective_date
+            from: claim
+          revoked_date:
+            input: expiry_date
             from: claim
         topic:
           source_id:
@@ -191,13 +208,27 @@ issuers:
               type:
                 input: address_type
                 from: claim
+          - model: attribute
+            fields:
+              type:
+                input: reason_description
+                from: value
+              format:
+                input: category
+                from: value
+              value:
+                input: reason_description
+                from: claim
 
       - description: Relationship
-        schema: relationship.onbis.gov.on.ca
+        schema: relationship.von.gov.on.ca
         issuer_url: $APPLICATION_URL_RELATIONSHIP
         credential:
           effective_date:
             input: effective_date
+            from: claim
+          revoked_date:
+            input: expiry_date
             from: claim
         topic:
           related_source_id:
@@ -255,4 +286,15 @@ issuers:
                 from: value
               value:
                 input: relationship_status_effective
+                from: claim
+          - model: attribute
+            fields:
+              type:
+                input: reason_description
+                from: value
+              format:
+                input: category
+                from: value
+              value:
+                input: reason_description
                 from: claim
