@@ -135,8 +135,8 @@
                     "value": "${ENABLE_GUNICORN}"
                   },
                   {
-                    "name": "GENESIS_URL",
-                    "value": "${GENESIS_URL}"
+                    "name": "INDY_GENESIS_URL",
+                    "value": "${INDY_GENESIS_URL}"
                   },
                   {
                     "name": "INDY_LEDGER_URL",
@@ -359,7 +359,7 @@
       "value": "1"
     },
     {
-      "name": "GENESIS_URL",
+      "name": "INDY_GENESIS_URL",
       "displayName": "Genesis Url",
       "description": "URL for downloading a copy of the genesis file defining the ledger connection for the environment.  Used when connecting the the Sovrin Ledger.",
       "required": false,
