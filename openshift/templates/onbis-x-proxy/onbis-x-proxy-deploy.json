@@ -150,6 +150,24 @@
                   {
                     "name": "AGENT_PORT",
                     "value": "${AGENT_PORT}"
+                  },
+                  {
+                    "name": "AGENT_USER",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "user"
+                      }
+                    }
+                  },
+                  {
+                    "name": "AGENT_PASSWORD",
+                    "valueFrom": {
+                      "secretKeyRef": {
+                        "name": "${NAME}",
+                        "key": "password"
+                      }
+                    }
                   }
                 ],
                 "readinessProbe": {
@@ -282,6 +300,22 @@
       "description": "The port of the von-x agent associated with this proxy.",
       "required": true,
       "value": "8080"
+    },
+    {
+      "name": "AGENT_USER",
+      "displayName": "Username for the von-x agent Instance",
+      "description": "Username for the von-x agent Instance.  Needs to be basee64 encoded.",
+      "required": true,
+      "generate": "expression",
+      "from": "[a-zA-Z_][a-zA-Z0-9_]{10}"
+    },
+    {
+      "name": "AGENT_PASSWORD",
+      "displayName": "Password for the von-x agent Instance",
+      "description": "Password for the von-x agent Instance.  Needs to be basee64 encoded.",
+      "required": true,
+      "generate": "expression",
+      "from": "[a-zA-Z0-9_~!@#$%^&*()-=<>,.?;:|]{16}"
     },
     {
       "name": "CONFIG_FILE_NAME",
