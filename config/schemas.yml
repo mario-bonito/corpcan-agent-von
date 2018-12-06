@@ -54,7 +54,7 @@
       required: true
     expiry_date:
       description: Date Credential expired
-      required: true
+      required: false
     reason_description:
       description: Reason for credential issue/update
       required: false
@@ -86,14 +86,14 @@
     country:
       description: Name of a recognized national territory
       required: true
-    address_effective_date:
+    address_effective:
       description: Date current address became/becomes effective
       required: false
     effective_date:
       description: Date Credential is effective
       required: true
-    address_expiry_date:
-      description: Date Credential expires
+    expiry_date:
+      description: Date Credential expired
       required: false
     reason_description:
       description: Reason for credential issue/update
@@ -123,8 +123,8 @@
     effective_date:
       description: Date Credential is effective
       required: true
-    relationship_expiry_date:
-      description: Date Credential expires
+    expiry_date:
+      description: Date Credential expired
       required: false
     reason_description:
       description: Reason for credential issue/update

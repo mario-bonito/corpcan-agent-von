@@ -29,7 +29,7 @@ issuers:
 
     credential_types:
       - description: Registration
-        schema: registration.von.gov.on.ca
+        schema: registration.registries.ca
         issuer_url: $APPLICATION_URL_REGISTRATION
         credential:
           effective_date:
@@ -166,7 +166,7 @@ issuers:
                 from: claim
 
       - description: Address
-        schema: address.von.gov.on.ca
+        schema: address.registries.ca
         issuer_url: $APPLICATION_URL_ADDRESS
         credential:
           effective_date:
@@ -221,7 +221,7 @@ issuers:
                 from: claim
 
       - description: Relationship
-        schema: relationship.von.gov.on.ca
+        schema: relationship.registries.ca
         issuer_url: $APPLICATION_URL_RELATIONSHIP
         credential:
           effective_date:
