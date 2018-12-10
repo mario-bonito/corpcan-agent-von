@@ -35,7 +35,7 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
     #bad.write(f'#         {time.asctime()}             #\n')
     #bad.write(f'################################################\n\n')
 
-    with open(cred_path, encoding='iso-8859-1') as fp:
+    with open(cred_path, 'rb') as fp:
         done_pos = done.readline()
         if done_pos: fp.seek(int(done_pos))
         else: fp.seek(start_point)
@@ -49,12 +49,12 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
                 cred_json = fp.readline()
                 current_point = fp.tell()
                 if (cred_json):
-                    batch.append(json.loads(cred_json))
+                    batch.append(json.loads(cred_json, strict=False))
                     cred_cnt += 1
                 else:
                     break
             batch_cnt += 1
-            cred_json = json.loads(json.dumps(batch))
+            cred_json = json.loads(json.dumps(batch), strict=False)
 
             start_time = time.time()
             try:
