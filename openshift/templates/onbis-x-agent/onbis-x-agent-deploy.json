@@ -433,7 +433,7 @@
       "displayName": "Wallet Storage Type",
       "description": "The wallet storage type.  Your choice of 'postgres' or 'sqlite' at the moment.  If not defined, defaults to 'sqlite' for compatibility",
       "required": false,
-      "value": "postgres"
+      "value": "postgres_storage"
     },
     {
       "name": "POSTGRESQL_WALLET_HOST",
