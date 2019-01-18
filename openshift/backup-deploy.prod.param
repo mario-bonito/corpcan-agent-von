@@ -9,6 +9,9 @@
 TAG_NAME=prod
 # WALLET_DB_HOST_NAME=wallet-db
 # BACKUP_STRATEGY=rolling
+# WEBHOOK_URL=
+ENVIRONMENT_FRIENDLY_NAME=Ontario Registries Agent (prod)
+ENVIRONMENT_NAME=ontvon-von-ont-registries-agent-prod
 # BACKUP_DIR=/backups/
 # NUM_BACKUPS=
 # DAILY_BACKUPS=

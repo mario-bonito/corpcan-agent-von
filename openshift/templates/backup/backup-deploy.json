@@ -145,6 +145,18 @@
                         "key": "database-password"
                       }
                     }
+                  },
+                  {
+                    "name": "WEBHOOK_URL",
+                    "value": "${WEBHOOK_URL}"
+                  },
+                  {
+                    "name": "ENVIRONMENT_FRIENDLY_NAME",
+                    "value": "${ENVIRONMENT_FRIENDLY_NAME}"
+                  },
+                  {
+                    "name": "ENVIRONMENT_NAME",
+                    "value": "${ENVIRONMENT_NAME}"
                   }
                 ],
                 "resources": {
@@ -217,6 +229,27 @@
       "description": "The strategy to use for backups; for example daily, or rolling.",
       "required": true,
       "value": "rolling"
+    },
+    {
+      "name": "WEBHOOK_URL",
+      "displayName": "Webhook URL",
+      "description": "The URL of the webhook to use for notifications.  If not specified, the webhook integration feature is disabled.",
+      "required": false,
+      "value": ""
+    },
+    {
+      "name": "ENVIRONMENT_FRIENDLY_NAME",
+      "displayName": "Friendly Environment Name",
+      "description": "The human readable name of the environment.  This variable is used by the webhook integration to identify the environment in which the backup notifications originate.",
+      "required": false,
+      "value": ""
+    },
+    {
+      "name": "ENVIRONMENT_NAME",
+      "displayName": "Environment Name (Environment Id)",
+      "description": "The name or Id of the environment.  This variable is used by the webhook integration to identify the environment in which the backup notifications originate.",
+      "required": false,
+      "value": ""
     },
     {
       "name": "BACKUP_DIR",
@@ -300,7 +333,7 @@
       "displayName": "Persistent Volume Class name",
       "description": "The class of the volume; gluster-file, gluster-block, gluster-file-db",
       "required": false,
-      "value": ""
+      "value": "gluster-file"
     },
     {
       "name": "CPU_REQUEST",
