@@ -1,7 +1,7 @@
 [
   {
-    "schema": "registration.onbis.gov.on.ca",
-    "version": "1.0.1",
+    "schema": "registration.registries.ca",
+    "version": "1.0.40",
     "attributes": {
       "registration_id":"1423",
       "registration_date":"1892-04-14",
@@ -23,8 +23,8 @@
     }
   },
   {
-    "schema": "address.onbis.gov.on.ca",
-    "version": "1.0.1",
+    "schema": "address.registries.ca",
+    "version": "1.0.40",
     "attributes": {
       "registration_id":"1423",
       "addressee":"",
@@ -38,8 +38,8 @@
     }
   },
   {
-    "schema": "registration.onbis.gov.on.ca",
-    "version": "1.0.1",
+    "schema": "registration.registries.ca",
+    "version": "1.0.40",
     "attributes": {
       "registration_id": "1554948",
       "registration_date": "1999-11-29",
@@ -61,8 +61,8 @@
     }
   },
   {
-    "schema": "address.onbis.gov.on.ca",
-    "version": "1.0.1",
+    "schema": "address.registries.ca",
+    "version": "1.0.40",
     "attributes": {
       "registration_id": "1554948",
       "addressee": "",
@@ -76,8 +76,8 @@
     }
   },
   {
-    "schema": "relationship.onbis.gov.on.ca",
-    "version": "1.0.1",
+    "schema": "relationship.registries.ca",
+    "version": "1.0.40",
     "attributes": {
       "registration_id":"1423",
       "associated_registration_id":"1554948",

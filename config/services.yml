@@ -5,6 +5,7 @@ issuers:
     email: 393 University Avenue, Suite 200, Toronto, ON  M5G 2M2
     url: http://www.ontario.ca
     logo_path: ../assets/img/logo.png
+    endpoint: $ENDPOINT_URL
 
     connection:
       type: TheOrgBook
