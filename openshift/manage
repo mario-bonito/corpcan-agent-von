@@ -28,11 +28,6 @@ usage () {
     hardReset
       - Delete the persistent indy wallet information.
 
-    deleteWallets
-      - Delete the local wallets from one or more pods.
-        For example;
-          $0 -e dev deleteWallets onbis-x-agent
-
     scaleUp
       - Scale up one or more pods.
         For example;
@@ -120,9 +115,6 @@ hardReset() {
   switchProject
   exitOnError
 
-  # Delete any sqlite wallets from the agent Pod ...
-  deleteWallets ${_agentPodName}
-
   # Scale down the agent pod ...
   scaleDown ${_agentPodName}
   exitOnError
@@ -153,10 +145,6 @@ case "${_cmd}" in
     agentPodName=${1:-onbis-x-agent}
     walletDbPodName=${2:-wallet-db}
     hardReset "${agentPodName}" "${walletDbPodName}"
-    ;;
-  deletewallets)
-    deleteWallets ${@}
-    recyclePods ${@}
     ;;
   scaleup)
     switchProject
