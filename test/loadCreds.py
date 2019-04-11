@@ -5,6 +5,7 @@ import json
 import argparse
 import asyncio
 import aiohttp
+import chardet
 
 DEFAULT_AGENT_URL = os.environ.get('AGENT_URL', 'http://localhost:5000/onbis')
 
@@ -49,7 +50,17 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
                 cred_json = fp.readline()
                 current_point = fp.tell()
                 if (cred_json):
-                    batch.append(json.loads(cred_json, strict=False))
+                    try:
+                        json_object = json.loads(cred_json, strict=False)
+                    except:
+                        #print(cred_json)
+                        char_det = chardet.detect(cred_json)
+                        char_enc = char_det['encoding']
+                        enc_data = cred_json.decode(char_enc)
+                        cred_json = enc_data.encode('utf-8', 'strict')
+                        #sys.exit()
+                        json_object = json.loads(cred_json, strict=False)   
+                    batch.append(json_object)
                     cred_cnt += 1
                 else:
                     break
@@ -82,7 +93,6 @@ async def issue_cred(session, cred_path, start_point, end_point, split_cnt, batc
             done.write(str(current_point))
             elapsed = time.time() - start_time
             print(f'{basename}({split_cnt},{batch_cnt}): Response from von-x ({elapsed:.2f}s).\n{result_json}\n')
-
     bad.close()
     done.close()
 
