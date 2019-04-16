@@ -231,6 +231,10 @@
                         "key": "did"
                       }
                     }
+                  },
+                  {
+                    "name": "ENDPOINT_URL",
+                    "value": "${ENDPOINT_URL}"
                   }
                 ],
                 "readinessProbe": {
@@ -263,6 +267,24 @@
             ]
           }
         }
+      }
+    },
+    {
+      "kind": "HorizontalPodAutoscaler",
+      "apiVersion": "autoscaling/v1",
+      "metadata": {
+        "name": "${NAME}",
+        "labels": {
+          "app": "${NAME}"
+    }
+      },
+      "spec": {
+        "scaleTargetRef": {
+          "kind": "DeploymentConfig",
+          "name": "${NAME}"
+        },
+        "minReplicas": 1,
+        "maxReplicas": 8
       }
     }
   ],
@@ -446,32 +468,39 @@
       "value": "wallet-credentials"
     },
     {
-      "name": "CPU_LIMIT",
-      "displayName": "Resources CPU Limit",
-      "description": "The resources CPU limit (in cores) for this build.",
+      "name": "ENDPOINT_URL",
+      "displayName": "Endpoint URL",
+      "description": "The agent's API endpoint.  This URL is registered on the ledger to allow other agents to perform dependency resolution.",
       "required": true,
-      "value": "0"
-    },
-    {
-      "name": "MEMORY_LIMIT",
-      "displayName": "Resources Memory Limit",
-      "description": "The resources Memory limit (in Mi, Gi, etc) for this build.",
-      "required": true,
-      "value": "0Mi"
+      "value": ""
     },
     {
       "name": "CPU_REQUEST",
       "displayName": "Resources CPU Request",
       "description": "The resources CPU request (in cores) for this build.",
       "required": true,
-      "value": "0"
+      "value": "10m"
+    },
+    {
+      "name": "CPU_LIMIT",
+      "displayName": "Resources CPU Limit",
+      "description": "The resources CPU limit (in cores) for this build.",
+      "required": true,
+      "value": "1000m"
     },
     {
       "name": "MEMORY_REQUEST",
       "displayName": "Resources Memory Request",
       "description": "The resources Memory request (in Mi, Gi, etc) for this build.",
       "required": true,
-      "value": "0Mi"
+      "value": "10Mi"
+    },
+    {
+      "name": "MEMORY_LIMIT",
+      "displayName": "Resources Memory Limit",
+      "description": "The resources Memory limit (in Mi, Gi, etc) for this build.",
+      "required": true,
+      "value": "512Mi"
     }
   ]
 }
