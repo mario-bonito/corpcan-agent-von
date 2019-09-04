@@ -1,0 +1,212 @@
+<!doctype html>
+<html class="no-js" dir="ltr" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head prefix="og: http://ogp.me/ns#">
+    {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ page_title|default(title) }}{% endblock %}</title>
+    {% block includes %}
+
+    <link rel="schema.dcterms" href="http://purl.org/dc/terms/"/>
+    <meta name="description" content="The act of incorporating creates a new legal entity called a corporation, commonly referred to as a “company.” A corporation has the same rights and obligations under Canadian law as a natural person."/>
+		<meta name="keywords" content="Incorporation, Federal Business, Canada"/>
+		<meta name="author" content="Innovation, Science and Economic Development Canada"/>
+		<meta name="dcterms.title" content="Departments and agencies"/>
+		<meta name="dcterms.description" content="The act of incorporating creates a new legal entity called a corporation, commonly referred to as a “company.” A corporation has the same rights and obligations under Canadian law as a natural person."/>
+		<meta name="dcterms.creator" content="Innovation, Science and Economic Development Canada"/>
+		<meta name="dcterms.language" title="ISO639-2/T" content="eng"/>
+		<meta name="dcterms.subject" title="gccore" content="Business, Incorporation"/>
+		<meta name="dcterms.issued" title="W3CDTF" content="{% now "Y-m-d" %}"/>
+		<meta name="dcterms.modified" title="W3CDTF" content="{% now "Y-m-d" %}"/>
+		<meta name="dcterms.spatial" content="Canada"/>
+
+    <link href="{{ static("img/favicon.ico") }}" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="{{ static("css/wet-boew.min.css") }}">
+    <link rel="stylesheet" href="{{ static("css/theme.min.css") }}">
+    <link rel="stylesheet" href="{{ static("css/custom.css") }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% for include in css_includes %}
+        <link rel="stylesheet" href="{{ static(include.src) }}">
+    {% endfor %}
+    {% endblock %}
+    {% block extrahead %}{% endblock %}
+    {% endblock %}
+</head>
+<body>
+    {% block header %}
+  <header>
+    <div id="wb-bnr" class="container">
+        <section id="wb-lng" class="text-right">
+            <h2 class="wb-inv">Language selection</h2>
+            <ul class="list-inline margin-bottom-none">
+                <li><a lang="fr" href="#">Français</a></li>
+            </ul>
+        </section>
+        <div class="row">
+            <div class="brand col-xs-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+                <a href="https://www.canada.ca/en.html" property="url"><img src="{{ static("img/sig-blk-en.svg") }}" alt="" property="logo"><span class="wb-inv" property="name"> Government of Canada / <span lang="fr">Gouvernement du Canada</span></span>
+                </a>
+                <meta property="areaServed" typeof="Country" content="Canada">
+                <link property="logo" href="{{ static("img/wmms-blk.svg") }}">
+            </div>
+            <section id="wb-srch" class="col-lg-8 text-right">
+                <h2>Search</h2>
+                <form action="#" method="post" name="cse-search-box" role="search" class="form-inline">
+                    <div class="form-group">
+                        <label for="wb-srch-q" class="wb-inv">Search Canada.ca</label>
+                        <input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Search Canada.ca">
+                        <datalist id="wb-srch-q-ac">
+                        </datalist>
+                    </div>
+                    <div class="form-group submit">
+                        <button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub"><span class="glyphicon-search glyphicon"></span><span class="wb-inv">Search</span></button>
+                    </div>
+                </form>
+            </section>
+          </div>
+      </div>
+      <nav class="gcweb-menu" typeof="SiteNavigationElement">
+          <div class="container">
+              <h2 class="wb-inv">Menu</h2>
+              <button type="button" aria-haspopup="true" aria-expanded="false"><span class="wb-inv">Main </span>Menu <span class="expicon glyphicon glyphicon-chevron-down"></span></button>
+              <ul role="menu" aria-orientation="vertical" data-ajax-replace="{{ static("ajax/sitemenu-v5-en.html") }}">
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/jobs.html">Jobs and the workplace</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/immigration-citizenship.html">Immigration and citizenship</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://travel.gc.ca/">Travel and tourism</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/business.html">Business and industry</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/benefits.html">Benefits</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/health.html">Health</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/taxes.html">Taxes</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/environment.html">Environment and natural resources</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/defence.html">National security and defence</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/culture.html">Culture, history and sport</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/policing.html">Policing, justice and emergencies</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/transport.html">Transport and infrastructure</a></li>
+                  <li role="presentation"><a role="menuitem" href="http://international.gc.ca/world-monde/index.aspx?lang=eng">Canada and the world</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/finance.html">Money and finances</a></li>
+                  <li role="presentation"><a role="menuitem" href="https://www.canada.ca/en/services/science.html">Science and innovation</a></li>
+              </ul>
+          </div>
+      </nav>
+      <nav id="wb-bc" property="breadcrumb">
+          <h2>You are here:</h2>
+          <div class="container">
+              <ol class="breadcrumb">
+                  <li><a href="https://www.canada.ca/en.html">Home</a></li>
+              </ol>
+          </div>
+      </nav>
+    </header>
+    {% endblock %}
+
+    {% block content %}
+    <main property="mainContentOfPage" class="container" typeof="WebPageElement">
+    <h1 property="name" id="wb-cont" class="wb-inv">Search for a Federal Corporation</h1>
+    <div class="row">
+        <div class="col-sm-10 col-sm-push-1">
+            <h2>{{ description }}</h2>
+            <p>{{ explanation }}</p>
+
+            {% include "bootstrap.form.html" %}
+        </div>
+        {% if proof_response %}
+        {% if proof_response.success == True %}
+        <div class="col-sm-10 col-sm-push-1">
+            <div class="row margin-lg">
+                <div class="col-sm-10 col-sm-push-1">
+                    <div class="panel panel-success padding-md">
+                        <h3>Cryptographically verified:</h3>
+                        <p>
+                            <pre>{{ proof_response.verified }}</pre>
+                        </p>
+                        <h3>Available claim data:</h3>
+                        <p>
+                            <pre>{{ proof_response.parsed_proof | jsonify }}</pre>
+                        </p>
+                        <h3>Received proof from TheOrgBook:</h3>
+                        <p>
+                            <pre>{{ proof_response.proof | jsonify }}</pre>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="col-sm-10 col-sm-push-1">
+            <div class="row margin-lg">
+                <div class="col-sm-10 col-sm-push-1">
+                    <div class="panel panel-danger padding-md">
+                        <h3>
+                            Unable to proceed based on the information available about this Legal Entity. Proof of the prerequisite permits/licenses must be available to continue this process.
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% endif %}
+    </div>
+    </main>
+    {% endblock %}
+
+    {% block footer %}
+    <footer id="wb-info">
+        <div class="landscape">
+        <nav class="container wb-navcurr">
+            <h2 class="wb-inv">About government</h2>
+            <ul class="list-unstyled colcount-sm-2 colcount-md-3">
+              <li><a href="https://www.canada.ca/en/government/dept.html">Departments and agencies</a></li>
+              <li><a href="https://www.canada.ca/en/government/publicservice.html">Public service and military</a></li>
+              <li><a href="https://www.canada.ca/en/news.html">News</a></li>
+              <li><a href="https://www.canada.ca/en/government/system/laws.html">Treaties, laws and regulations</a></li>
+              <li><a href="https://www.canada.ca/en/transparency/reporting.html">Government-wide reporting</a></li>
+              <li><a href="http://pm.gc.ca/en">Prime Minister</a></li>
+              <li><a href="https://www.canada.ca/en/government/system.html">About government</a></li>
+              <li><a href="http://open.canada.ca/en">Open government</a></li>
+            </ul>
+        </nav>
+        </div>
+        <div class="brand">
+            <div class="container">
+                <div class="row">
+                    <nav class="col-md-10 ftr-urlt-lnk">
+                        <h2 class="wb-inv">About this site</h2>
+                        <ul>
+                          <li><a href="https://www.canada.ca/en/social.html">Social media</a></li>
+                          <li><a href="https://www.canada.ca/en/mobile.html">Mobile applications</a></li>
+                          <li><a href="https://www.canada.ca/en/government/about.html">About Canada.ca</a></li>
+                          <li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
+                          <li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+                        </ul>
+                    </nav>
+                    <div class="col-xs-6 visible-sm visible-xs tofpg">
+                        <a href="#wb-cont">Top of page <span class="glyphicon glyphicon-chevron-up"></span></a>
+                    </div>
+                    <div class="col-xs-6 col-md-2 text-right">
+                        <img src="{{ static("img/wmms-blk.svg") }}" alt="Symbol of the Government of Canada">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+
+    <script type="text/javascript">
+       THE_ORG_BOOK_APP_URL = '{{ THE_ORG_BOOK_APP_URL }}'
+    </script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery-typeahead/2.10.4/jquery.typeahead.js"></script>
+
+
+    <script src="{{ static("js/wet-boew.min.js") }}"></script>
+    <script src="{{ static("js/theme.min.js") }}"></script>
+
+    {% for include in js_includes %}
+        <script src="{{ static(include.src) }}"></script>
+    {% endfor %}
+</body>
+</html>
+
