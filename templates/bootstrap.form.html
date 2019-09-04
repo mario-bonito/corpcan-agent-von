@@ -14,7 +14,7 @@
                         <label class="control-label required" for="{{ field.prefix }}line1-input"><span class="field-name">{{ field.label | safe }}</span>
                         {% if field.type != "radio" %}<span class="required">(required)</span>{% endif %}</label>
                     {% else %}
-                        <label class="control-label" for="{{ field.name }}-input"><span class="field-name">{{ field.label | safe}}</span></label>
+                        <label class="control-label" for="{{ field.name }}-input"><span class="field-name">{{ field.label | safe }}</span></label>
                     {% endif %}
                     {% if field.type == "address" %}
                         <div class="form-address" id="{{ field.name }}-input">

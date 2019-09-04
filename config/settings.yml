@@ -1,8 +1,8 @@
 default:
-  APPLICATION_URL_REGISTRATION: $APPLICATION_URL/onbis/registration
-  APPLICATION_URL_ADDRESS: $APPLICATION_URL/onbis/address
-  APPLICATION_URL_RELATIONSHIP: $APPLICATION_URL/onbis/relationship
+  APPLICATION_URL_REGISTRATION: $APPLICATION_URL/gccorp/registration
+  APPLICATION_URL_ADDRESS: $APPLICATION_URL/gccorp/address
+  APPLICATION_URL_RELATIONSHIP: $APPLICATION_URL/gccorp/relationship
   TEMPLATE_PATH: ../templates
   TOB_API_URL: http://tob-api:8080/api/v2
   TOB_APP_URL: http://localhost:8080
-  INDY_WALLET_SEED: onbis.von.gov.on.ca_dev_00000000
+  INDY_WALLET_SEED: gccorp.von.canada.ca_dev_00000000

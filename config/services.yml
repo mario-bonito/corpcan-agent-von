@@ -1,10 +1,10 @@
 issuers:
-  onbis:
-    name: Ministry of Government and Consumer Services
-    abbreviation: MGCS
-    email: 393 University Avenue, Suite 200, Toronto, ON  M5G 2M2
-    url: http://www.ontario.ca
-    logo_path: ../assets/img/logo.png
+  gccorp:
+    name: Corporations Canada
+    abbreviation: GCCC
+    email: C.D. Howe Building, 235 Queen Street, Ottawa, ON  K1A 0H5
+    url: https://www.ic.gc.ca/eic/site/cd-dgc.nsf/eng/home
+    logo_path: ../assets/img/sig-blk-en.png
     endpoint: $ENDPOINT_URL
 
     connection:
@@ -13,7 +13,7 @@ issuers:
       sign_target: false
 
     wallet:
-      name: ${POSTGRESQL_WALLET_NAME:-onbis_issuer}
+      name: ${POSTGRESQL_WALLET_NAME:-gccorp_issuer}
       seed: $INDY_WALLET_SEED
       type: $WALLET_TYPE
       params:

@@ -85,8 +85,8 @@ configureEnvironment () {
   export LEDGER_URL=${LEDGER_URL-http://$DOCKERHOST:9000}
   export APPLICATION_URL=${APPLICATION_URL-http://localhost:${WEB_HTTP_PORT:-5000}}
   export ENDPOINT_URL=http://${ENDPOINT_HOST-$DOCKERHOST:${WEB_HTTP_PORT:-5001}}
-  export AGENT_USER="onbisuser"
-  export AGENT_PASSWORD="onbispass"
+  export AGENT_USER="gccorpuser"
+  export AGENT_PASSWORD="gccorppass"
 
   # wallet-db
   export POSTGRESQL_DATABASE="THE_ORG_BOOK"

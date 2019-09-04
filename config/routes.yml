@@ -1,24 +1,21 @@
 issuers:
-  ONBIS:
-    path: /onbis
+  GCCORP:
+    path: /gccorp
 
 forms:
-  onbis-incorp:
-    path: /onbis/registration
+  gccorp-incorp:
+    path: /gccorp/registration
     type: issue-credential
-    schema_name: registration.von.gov.on.ca
-    page_title: Ontario Business Registries
+    schema_name: registration.von.canada.ca
+    page_title: Federal Corporation Registries
     title: Registration
-    template: onbis.index.html
+    template: gccorp.index.html
     description: >
-      Ontario Registries and Online Services administers and supports the legal framework
-      used for operating a business, not-for-profit society, cooperative association
-      or financial institution in Ontario Organizations need to register, file documents
-      and update records, which are kept as a matter of public record.
-    explanation: Use the form below to register a Ontario corporation.
+      Corporations Canada is the country’s federal corporate regulator. It administers the laws that allow Canadians to create and maintain a corporation under the federal laws governing corporations in Canada. Note that financial institutions are incorporated by the Office of the Superintendent of Financial Institutions.
+    explanation: Use the form below to register a Federal corporation.
 
     js_includes:
-      - src: js/onbis.js
+      - src: js/gccorp.js
 
     fields:
       - name: entity_name
