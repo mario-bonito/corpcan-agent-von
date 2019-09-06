@@ -33,6 +33,7 @@
     {% endblock %}
     {% block extrahead %}{% endblock %}
     {% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </head>
 <body>
     {% block header %}
@@ -106,7 +107,8 @@
     <h1 property="name" id="wb-cont" class="wb-inv">Search for a Federal Corporation</h1>
     <div class="row">
         <div class="col-sm-10 col-sm-push-1">
-            <h2>{{ description }}</h2>
+            <h2>{{ title }}</h2>
+            <p>{{ description }}</p>
             <p>{{ explanation }}</p>
 
             {% include "bootstrap.form.html" %}
@@ -196,17 +198,15 @@
     <script type="text/javascript">
        THE_ORG_BOOK_APP_URL = '{{ THE_ORG_BOOK_APP_URL }}'
     </script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <script type="text/javascript"
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery-typeahead/2.10.4/jquery.typeahead.js"></script>
 
 
     <script src="{{ static("js/wet-boew.min.js") }}"></script>
     <script src="{{ static("js/theme.min.js") }}"></script>
-
-    {% for include in js_includes %}
-        <script src="{{ static(include.src) }}"></script>
-    {% endfor %}
+    <script src="{{ static("js/main.js") }}"></script>
+    <script src="{{ static("js/gccorp.js") }}"></script>
 </body>
 </html>
 
