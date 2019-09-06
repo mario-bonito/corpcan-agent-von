@@ -106,7 +106,7 @@
     <main property="mainContentOfPage" class="container" typeof="WebPageElement">
     <h1 property="name" id="wb-cont" class="wb-inv">Search for a Federal Corporation</h1>
     <div class="row">
-        <div class="col-sm-10 col-sm-push-1">
+        <div class="col-sm-12">
             <h2>Register a Federal Corporation</h2>
             <p>{{ description }}</p>
             <p>{{ explanation }}</p>
@@ -115,9 +115,9 @@
         </div>
         {% if proof_response %}
         {% if proof_response.success == True %}
-        <div class="col-sm-10 col-sm-push-1">
+        <div class="col-sm-12">
             <div class="row margin-lg">
-                <div class="col-sm-10 col-sm-push-1">
+                <div class="col-sm-11 col-sm-push-1">
                     <div class="panel panel-success padding-md">
                         <h3>Cryptographically verified:</h3>
                         <p>
@@ -136,9 +136,9 @@
             </div>
         </div>
         {% else %}
-        <div class="col-sm-10 col-sm-push-1">
+        <div class="col-sm-11 col-sm-push-1">
             <div class="row margin-lg">
-                <div class="col-sm-10 col-sm-push-1">
+                <div class="col-sm-11 col-sm-push-1">
                     <div class="panel panel-danger padding-md">
                         <h3>
                             Unable to proceed based on the information available about this Legal Entity. Proof of the prerequisite permits/licenses must be available to continue this process.

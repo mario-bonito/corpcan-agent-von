@@ -7,7 +7,7 @@
             <input type="hidden" name="{{ field }}" value="{{ inputs[field] }}">
         {% endfor %}
         <div class="row">
-            <div class="col-md-8 col-md-push-2">
+            <div class="col-md-11 col-md-push-1">
                 {% for field in fields %}
                 <div class="form-group">
                     {% if field.required %}
@@ -21,7 +21,7 @@
                             <div class="row form-field">
                                 <div class="col-sm-12">
                                     <label class="control-label" for="{{ field.prefix }}addressee-input"><span class="field-name">Attention</span></label>
-                                    <input class="form-control" type="text"
+                                    <input class="form-control full-width" type="text"
                                         name="{{ field.prefix }}addressee"
                                         id="{{ field.prefix }}addressee-input"
                                         value="{{ inputs.addressee }}"
@@ -32,7 +32,7 @@
                                 <div class="col-sm-12">
                                     <label class="control-label" for="{{ field.prefix }}line1-input"><span class="field-name">Street Address</span></label>
                                     <div class="typeahead__container">
-                                      <input class="form-control js-typeahead" type="text"
+                                      <input class="form-control js-typeahead full-width" type="text"
                                           name="{{ field.prefix }}address_line_1"
                                           id="{{ field.prefix }}line1-input"
                                           value="{{ inputs.address_line_1 }}"
@@ -45,7 +45,7 @@
                             </div>
                             <div class="row form-field">
                                 <div class="col-sm-12">
-                                    <input class="form-control mrgn-tp-sm" type="text"
+                                    <input class="form-control mrgn-tp-sm full-width" type="text"
                                         name="{{ field.prefix }}address_line_2"
                                         id="{{ field.prefix }}line2-input"
                                         value="{{ inputs.address_line_2 }}"
@@ -55,7 +55,7 @@
                             <div class="row form-field">
                                 <div class="col-sm-6">
                                     <label class="control-label" for="{{ field.prefix }}city-input"><span class="field-name">City</span></label>
-                                    <input class="form-control" type="text"
+                                    <input class="form-control full-width" type="text"
                                         name="{{ field.prefix }}city"
                                         id="{{ field.prefix }}city-input"
                                         value="{{ inputs.city }}"
@@ -64,7 +64,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="control-label" for="{{ field.prefix }}province-input"><span class="field-name">Province</span></label>
-                                    <select class="form-control" type="text"
+                                    <select class="form-control full-width" type="text"
                                         name="{{ field.prefix }}province"
                                         id="{{ field.prefix }}province-input"
                                         value="{{ inputs.province }}"
@@ -89,7 +89,7 @@
                             <div class="row form-field">
                                 <div class="col-sm-6">
                                     <label class="control-label" for="{{ field.prefix }}postal_code-input"><span class="field-name">Postal Code</span></label>
-                                    <input class="form-control" type="text"
+                                    <input class="form-control full-width" type="text"
                                         name="{{ field.prefix }}postal_code"
                                         id="{{ field.prefix }}postal_code-input"
                                         value="{{ inputs.postal_code }}"
@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label class="control-label" for="{{ field.prefix }}country-input"><span class="field-name">Country</span></label>
-                                    <select class="form-control"
+                                    <select class="form-control full-width"
                                         name="{{ field.prefix }}country"
                                         id="{{ field.prefix }}country-input"
                                         value="{{ inputs.country }}"
@@ -112,7 +112,7 @@
 
                     {% elif field.type == "select" %}
                         <select
-                            class="form-control"
+                            class="form-control full-width"
                             name="{{ field.name }}"
                             id="{{ field.name }}-input"
                             {% if field.multiple %}multiple{% endif %}
@@ -178,7 +178,7 @@
                         ></div>
                     {% else %}
                         <input
-                            class="form-control"
+                            class="form-control full-width"
                             type="{{ field.type }}"
                             name="{{ field.name }}"
                             size="{{ field.size }}"
