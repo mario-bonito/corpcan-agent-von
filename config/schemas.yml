@@ -1,5 +1,5 @@
-- name: registration.registries.ca
-  version: '1.0.40'
+- name: registration.von.canada.ca
+  version: "1.0.40"
   attributes:
     registration_id:
       description: Registration/Incorporation Number or Identifying Number
@@ -60,7 +60,7 @@
       required: false
 
 - name: address.registries.ca
-  version: '1.0.40'
+  version: "1.0.40"
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
@@ -99,8 +99,8 @@
       description: Reason for credential issue/update
       required: false
 
-- name: relationship.registries.ca
-  version: '1.0.40'
+- name: relationship.von.canada.ca
+  version: "1.0.40"
   attributes:
     registration_id:
       description: Unique identifer assigned to entity by registrar
