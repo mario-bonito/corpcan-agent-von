@@ -30,7 +30,7 @@ issuers:
 
     credential_types:
       - description: Registration
-        schema: registration.registries.ca
+        schema: registration.von.canada.ca
         issuer_url: $APPLICATION_URL_REGISTRATION
         credential:
           effective_date:
@@ -233,7 +233,7 @@ issuers:
                 from: claim
 
       - description: Relationship
-        schema: relationship.registries.ca
+        schema: relationship.von.canada.ca
         issuer_url: $APPLICATION_URL_RELATIONSHIP
         credential:
           effective_date:
